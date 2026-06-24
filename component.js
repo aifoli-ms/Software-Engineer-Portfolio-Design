@@ -105,7 +105,7 @@ window.__PortfolioComponent = function(DCLogic) { return class Component extends
     const form = e.target;
     this.setState({ sending: true, toast: '' });
     try {
-      const res = await fetch('https://formsubmit.co/ajax/shaunemensah@gmail.com', {
+      const res = await fetch('https://formsubmit.co/ajax/5029c528dd85ab0c4d448453e38f90ac', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify(Object.fromEntries(new FormData(form)))
