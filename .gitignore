@@ -1,0 +1,8 @@
+.env
+.env.local
+node_modules/
+.DS_Store
+.thumbnail
+.firecrawl/
+assets/screenshots/
+assets/images/screenshot-misc.png

@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="./support.js"></script>
+  <script src="./component.js"></script>
+</head>
+
+<body>
+  <x-dc>
+    <helmet>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=Carlito:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+      <link rel="stylesheet" href="./styles.css">
+    </helmet>
+    <div ref="{{ setRoot }}" class="root"
+      style="--bg:#eef2f7;--surface:#f6f8fb;--surface2:#ffffff;--fg:#0f1b2d;--muted:#4a5e7a;--faint:#7889a0;--border:rgba(15,27,45,.12);--accent:#06b6d4;--accent-soft:rgba(6,182,212,.10)">
+
+      <!-- ===================== NAV ===================== -->
+      <nav class="nav">
+        <div class="nav-inner">
+          <a onClick="{{ goHome }}" class="nav-logo">
+            <span class="nav-logo-icon">SE</span>
+            <span class="nav-logo-text">Shaun Ato Aifoli Esua-Mensah</span>
+          </a>
+          <div class="nav-desk">
+            <a data-nav="work" onClick="{{ goWork }}" class="nav-link">Work</a>
+            <a data-nav="about" onClick="{{ goAbout }}" class="nav-link">About</a>
+            <a data-nav="skills" onClick="{{ goSkills }}" class="nav-link">Skills</a>
+            <a data-nav="experience" onClick="{{ goExp }}" class="nav-link">Experience</a>
+            <a data-nav="contact" onClick="{{ goContact }}" class="nav-link">Contact</a>
+          </div>
+          <div class="nav-actions">
+            <button onClick="{{ toggleTheme }}" aria-label="Toggle theme" class="theme-btn">{{ themeIcon }}</button>
+            <button onClick="{{ openResume }}" class="resume-btn" style-hover="filter:brightness(1.07)">Résumé <span
+                class="resume-btn-arrow">↓</span></button>
+            <button onClick="{{ toggleNav }}" aria-label="Menu" class="nav-burger theme-btn">≡</button>
+          </div>
+        </div>
+        <div class="mobile-menu" style="max-height:{{ mobileMenuH }}">
+          <div class="mobile-menu-inner">
+            <a onClick="{{ goWork }}" class="mobile-link">Work</a>
+            <a onClick="{{ goAbout }}" class="mobile-link">About</a>
+            <a onClick="{{ goSkills }}" class="mobile-link">Skills</a>
+            <a onClick="{{ goExp }}" class="mobile-link">Experience</a>
+            <a onClick="{{ goContact }}" class="mobile-link">Contact</a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- ===================== HERO ===================== -->
+      <section id="home" class="hero">
+        <div class="hero-dots"></div>
+        <div class="hero-content hero-grid">
+          <div>
+            <div data-reveal class="status-badge">
+              <span class="status-dot"></span>
+              <span class="status-text">Open to internships &amp; new grad roles</span>
+            </div>
+            <h1 data-reveal class="hero-title">Building systems<br>and <span class="hero-accent">AI tools</span> that
+              solve real problems.</h1>
+            <p data-reveal class="hero-desc">I'm a computer science student at Ashesi University and software engineer
+              with hands-on experience building production APIs, AI-powered tools, and full-stack dashboards, with
+              research published at NAACL.</p>
+            <div data-reveal class="hero-buttons">
+              <button onClick="{{ goWork }}" class="btn-primary"
+                style-hover="filter:brightness(1.07);transform:translateY(-1px)">View Work →</button>
+              <button onClick="{{ openResume }}" class="btn-secondary"
+                style-hover="border-color:var(--accent);transform:translateY(-1px)">Download Résumé ↓</button>
+              <button onClick="{{ goContact }}" class="btn-ghost"
+                style-hover="border-color:var(--accent);transform:translateY(-1px)">Get in touch</button>
+            </div>
+            <div data-reveal class="hero-links">
+              <a href="https://github.com/aifoli-ms" target="_blank" class="social-link"
+                style-hover="color:var(--accent);border-color:var(--accent)">GitHub ↗</a>
+              <a href="https://www.linkedin.com/in/shaun-esua-mensah" target="_blank" class="social-link"
+                style-hover="color:var(--accent);border-color:var(--accent)">LinkedIn ↗</a>
+              <a href="mailto:shaunemensah@gmail.com" class="social-link"
+                style-hover="color:var(--accent);border-color:var(--accent)">Email ↗</a>
+              <a href="https://arxiv.org/abs/2505.00001" target="_blank" class="social-link-accent"
+                style-hover="background:var(--accent-soft)">NAACL Paper ↗</a>
+            </div>
+          </div>
+          <div data-reveal class="hero-right">
+            <div class="profile-frame">
+              <img src="./assets/images/profile.jpg" alt="Shaun Ato Aifoli Esua-Mensah" class="profile-img"
+                onerror="this.style.display='none';this.parentElement.innerHTML='<span style=&quot;font:700 64px Space Grotesk;color:var(--accent)&quot;>SE</span>'">
+            </div>
+            <div class="code-card">
+              <div class="code-header">
+                <span class="code-dot"></span>
+                <span class="code-dot"></span>
+                <span class="code-dot"></span>
+                <span class="code-filename">route.controller.ts</span>
+              </div>
+              <pre class="code-body"><span style="color:var(--faint)">// validated route with guard &amp; pipe</span>
+<span style="color:var(--accent)">@Post</span>(<span style="color:#7fb88f">'segments/:id/pricing'</span>)
+<span style="color:var(--accent)">@UseGuards</span>(UserExistsByIdGuard)
+<span style="color:var(--accent)">async</span> updatePricing(
+  <span style="color:var(--accent)">@Param</span>(<span style="color:#7fb88f">'id'</span>, PositiveIntPipe) id: number,
+  <span style="color:var(--accent)">@Body</span>() dto: UpdatePricingDto,
+) {
+  <span style="color:var(--accent)">return</span> <span style="color:var(--accent)">this</span>.routeService
+    .<span style="color:var(--accent)">updateSegmentPricing</span>(id, dto);
+}</pre>
+            </div>
+          </div>
+        </div>
+        <!-- stat strip -->
+        <div data-reveal class="stat-strip stat-grid">
+          <div class="stat-card">
+            <div class="stat-value"><span data-count="5" data-dec="0">5</span></div>
+            <div class="stat-label">ENGINEERING ROLES</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value"><span data-count="2.8" data-dec="1">2.8</span>M+</div>
+            <div class="stat-label">RECORDS ANALYZED</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value"><span data-count="95" data-dec="0">95</span>.97%</div>
+            <div class="stat-label">MODEL ACCURACY</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value"><span data-count="1" data-dec="0">1</span></div>
+            <div class="stat-label">NAACL PAPER</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== ABOUT ===================== -->
+      <section id="about" class="section">
+        <div class="container">
+          <div data-reveal class="section-tag">// 01 — ABOUT</div>
+          <div class="about-grid about-grid-layout">
+            <div data-reveal>
+              <h2 class="section-title">I care about shipping things that actually work.</h2>
+              <p class="about-text">I'm a Computer Science student at Ashesi University with real-world experience
+                across backend engineering, AI research, and data analytics. I've built production APIs serving 19+ bus
+                operators, shipped 25+ bug fixes on an AI-powered SaaS platform, and analyzed 2.8M+ loan records to
+                improve risk models.</p>
+              <p class="about-text">On the research side, I co-authored a <a href="https://arxiv.org/abs/2505.00001"
+                  target="_blank" class="about-link">paper at the NAACL Student Research Workshop</a> demonstrating
+                GPT-4o's ability to solve formal logic problems with 99.89% accuracy on unseen data.</p>
+
+            </div>
+            <div data-reveal class="about-col-right">
+              <div class="info-card">
+                <div class="info-card-title">AREAS OF EXPERTISE</div>
+                <div class="info-list">
+                  <div class="info-item"><span class="info-arrow">▸</span>
+                    <div><b>Backend engineering</b>
+                      <div class="info-item-desc">NestJS APIs, validation pipes, guards, transaction safety, CI/CD
+                        quality gates.</div>
+                    </div>
+                  </div>
+                  <div class="info-item"><span class="info-arrow">▸</span>
+                    <div><b>AI &amp; ML research</b>
+                      <div class="info-item-desc">LLM evaluation, formal logic reasoning, model training,
+                        NAACL-published research.</div>
+                    </div>
+                  </div>
+                  <div class="info-item"><span class="info-arrow">▸</span>
+                    <div><b>Data analytics &amp; pipelines</b>
+                      <div class="info-item-desc">ETL pipelines, loan analytics at scale, risk modeling, marketing
+                        performance analysis.</div>
+                    </div>
+                  </div>
+                  <div class="info-item"><span class="info-arrow">▸</span>
+                    <div><b>Full-stack product development</b>
+                      <div class="info-item-desc">React dashboards, Next.js apps, real-time monitoring, Chrome
+                        extensions.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="info-card">
+                <div class="info-card-title-sm">CURRENTLY EXPLORING</div>
+                <p class="info-exploring">Scalable backend architectures, AI agents with real-world guardrails, and
+                  developer tooling that makes teams faster. Long-term I want to build systems that bring AI reliably
+                  into production.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== WORK / PROJECTS ===================== -->
+      <section id="work" class="section-surface">
+        <div class="container">
+          <div data-reveal class="section-tag">// 02 — SELECTED WORK</div>
+          <h2 data-reveal class="section-title-sm">Six projects, real impact.</h2>
+          <p data-reveal class="section-desc">From production APIs to AI tools and research. Each project below covers
+            the problem, the approach, what was hard, and what it moved.</p>
+
+          <!-- Project 01: SWIFT Transport -->
+          <article data-reveal class="project">
+            <div class="project-header">
+              <div>
+                <div class="project-meta"><span class="project-num">01</span><span class="project-tag">BACKEND</span>
+                </div>
+                <h3 class="project-title">SWIFT Transport — Bus Booking Platform</h3>
+                <p class="project-subtitle">Backend APIs powering real-time trip search, booking, and digital ticketing
+                  for 19+ bus operators across Ghana.</p>
+              </div>
+              <div class="project-actions">
+                <a href="https://www.swifttransport.app" target="_blank" class="project-live-link"
+                  style-hover="background:var(--accent-soft)">Live ↗</a>
+              </div>
+            </div>
+            <div class="project-img-wrap">
+              <img src="./assets/images/swift-os.png" alt="SWIFT Transport — trip search &amp; booking flow" class="project-img">
+            </div>
+            <div class="project-details case-grid">
+              <div>
+                <div class="detail-label">PROBLEM</div>
+                <p class="detail-text">Bus travel in Ghana was fragmented: paper tickets, no price comparison, no seat
+                  selection. Operators had no shared digital infrastructure, and passengers had no way to compare
+                  options or book ahead reliably.</p>
+              </div>
+              <div>
+                <div class="detail-label">SOLUTION</div>
+                <p class="detail-text">Built the Route &amp; Transit Management API from scratch: bus stop CRUD, route
+                  segment pricing, scheduling, and state management. Added UserExistsByIdGuard for secure user-scoped
+                  routes, enforced runtime env validation, and introduced CI coverage thresholds.</p>
+              </div>
+              <div>
+                <div class="detail-label">TECHNICAL CHALLENGES</div>
+                <ul class="detail-list">
+                  <li>Designing a flexible route segment pricing model for diverse operator needs.</li>
+                  <li>Standardizing input validation across payment and payout endpoints.</li>
+                  <li>Establishing CI quality gates from zero (statement 69%, branch 48%, function 46%, line 68%).</li>
+                </ul>
+              </div>
+              <div>
+                <div class="detail-label">KEY FEATURES</div>
+                <ul class="detail-list">
+                  <li>Full route management API: stops, segments, pricing, schedules.</li>
+                  <li>Driver-to-vehicle assignment for bus owner organisations.</li>
+                  <li>Automated daily payouts (currently shipping).</li>
+                </ul>
+              </div>
+            </div>
+            <div class="project-stats">
+              <div class="project-stat-border">
+                <div class="project-stat-value">11+</div>
+                <div class="project-stat-label">TICKETS SHIPPED</div>
+              </div>
+              <div class="project-stat-border">
+                <div class="project-stat-value">19+</div>
+                <div class="project-stat-label">BUS OPERATORS</div>
+              </div>
+              <div class="project-stat">
+                <div class="project-stat-value">iOS + Android</div>
+                <div class="project-stat-label">MOBILE APPS</div>
+              </div>
+            </div>
+            <div class="project-tags">
+              <span class="tech-tag">NestJS</span>
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">REST APIs</span>
+              <span class="tech-tag">Jest</span>
+            </div>
+          </article>
+
+          <!-- Project 02: Casa360 -->
+          <article data-reveal class="project">
+            <div class="project-header">
+              <div>
+                <div class="project-meta"><span class="project-num">02</span><span class="project-tag">FULL-STACK /
+                    AI</span></div>
+                <h3 class="project-title">Casa360 — AI Property Management</h3>
+                <p class="project-subtitle">AI-powered platform for tenant management, automated rent collection, and
+                  vendor matching.</p>
+              </div>
+              <div class="project-actions">
+                <a href="https://www.casa360.app" target="_blank" class="project-live-link"
+                  style-hover="background:var(--accent-soft)">Live ↗</a>
+              </div>
+            </div>
+            <div class="project-img-wrap">
+              <img src="./assets/images/casa-360.png" alt="Casa360 — property &amp; tenant overview" class="project-img">
+            </div>
+            <div class="project-details case-grid">
+              <div>
+                <div class="detail-label">PROBLEM</div>
+                <p class="detail-text">Property owners juggled tenants, payments, and maintenance across different
+                  tools. Service providers struggled with inconsistent jobs, low visibility, and delayed payments. The
+                  system didn't work smoothly for either side.</p>
+              </div>
+              <div>
+                <div class="detail-label">SOLUTION</div>
+                <p class="detail-text">Full-stack SaaS platform with AI assistant (Cassie) for automated workflows:
+                  tenant onboarding, rent follow-ups, vendor matching, and real-time financial dashboards. Shipped 25+
+                  bug fixes spanning transaction safety, Docker hardening, and React Query cache correctness.</p>
+              </div>
+              <div>
+                <div class="detail-label">TECHNICAL CHALLENGES</div>
+                <ul class="detail-list">
+                  <li>Fixed TOCTOU race conditions in payment processing (transaction safety).</li>
+                  <li>Resolved Docker signal-forwarding and graceful shutdown for multi-replica deployments.</li>
+                  <li>Hardened bulk import atomicity and multi-org auth context.</li>
+                </ul>
+              </div>
+              <div>
+                <div class="detail-label">KEY FEATURES</div>
+                <ul class="detail-list">
+                  <li>React Query cache invalidation fixes across vendor, payment, and invoice flows.</li>
+                  <li>Secured production by gating Swagger docs and preventing DTO field injection.</li>
+                  <li>AI-powered tenant workflows, vendor matching, and financial reporting.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="project-stats">
+              <div class="project-stat-border">
+                <div class="project-stat-value">25+</div>
+                <div class="project-stat-label">TICKETS SHIPPED</div>
+              </div>
+              <div class="project-stat-border">
+                <div class="project-stat-value">Race Fix</div>
+                <div class="project-stat-label">TOCTOU RESOLVED</div>
+              </div>
+              <div class="project-stat">
+                <div class="project-stat-value">Multi-Org</div>
+                <div class="project-stat-label">AUTH HARDENED</div>
+              </div>
+            </div>
+            <div class="project-tags">
+              <span class="tech-tag">Next.js</span>
+              <span class="tech-tag">NestJS</span>
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">Docker</span>
+              <span class="tech-tag">React Query</span>
+            </div>
+          </article>
+
+          <!-- Project 03: Equity Health Insurance -->
+          <article data-reveal class="project">
+            <div class="project-header">
+              <div>
+                <div class="project-meta"><span class="project-num">03</span><span class="project-tag">FULL-STACK</span>
+                </div>
+                <h3 class="project-title">Equity Health — Insurance Platform Rebuild</h3>
+                <p class="project-subtitle">Complete rebuild of a healthcare insurance website serving 682+ clients
+                  across Ghana.</p>
+              </div>
+              <div class="project-actions">
+                <a href="https://equity-health.vercel.app" target="_blank" class="project-live-link"
+                  style-hover="background:var(--accent-soft)">Live ↗</a>
+              </div>
+            </div>
+            <div class="project-img-wrap">
+              <img src="./assets/images/equity-health.png" alt="Equity Health Insurance — plan comparison &amp; enrollment"
+                class="project-img">
+            </div>
+            <div class="project-details case-grid">
+              <div>
+                <div class="detail-label">PROBLEM</div>
+                <p class="detail-text">Equity Health Insurance's website was outdated and didn't effectively showcase
+                  their 7 insurance products. Clients struggled to compare plans, understand coverage, and initiate
+                  enrollment online.</p>
+              </div>
+              <div>
+                <div class="detail-label">SOLUTION</div>
+                <p class="detail-text">Full-stack rebuild with modern architecture: plan comparison cards with clear
+                  pricing, client testimonials carousel, WhatsApp integration for quick consultations, and a fully
+                  responsive design optimized for mobile users across Ghana.</p>
+              </div>
+              <div>
+                <div class="detail-label">TECHNICAL CHALLENGES</div>
+                <ul class="detail-list">
+                  <li>Structuring 7 distinct plan types with varying features into a clear comparison UI.</li>
+                  <li>Optimizing load performance for low-bandwidth networks common in Ghana.</li>
+                  <li>Building a testimonials system that rotates across 8+ real client reviews.</li>
+                </ul>
+              </div>
+              <div>
+                <div class="detail-label">KEY FEATURES</div>
+                <ul class="detail-list">
+                  <li>7 plan comparison cards with transparent pricing (GH₵80–850/mo).</li>
+                  <li>WhatsApp-integrated consultation scheduling.</li>
+                  <li>Client testimonial carousel and trust signals.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="project-stats">
+              <div class="project-stat-border">
+                <div class="project-stat-value">7</div>
+                <div class="project-stat-label">INSURANCE PLANS</div>
+              </div>
+              <div class="project-stat-border">
+                <div class="project-stat-value">682+</div>
+                <div class="project-stat-label">TRUSTED CLIENTS</div>
+              </div>
+              <div class="project-stat">
+                <div class="project-stat-value">Nationwide</div>
+                <div class="project-stat-label">COVERAGE</div>
+              </div>
+            </div>
+            <div class="project-tags">
+              <span class="tech-tag">Next.js</span>
+              <span class="tech-tag">Tailwind CSS</span>
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">Vercel</span>
+            </div>
+          </article>
+
+          <!-- Project 04: Axon AI -->
+          <article data-reveal class="project">
+            <div class="project-header">
+              <div>
+                <div class="project-meta"><span class="project-num">04</span><span class="project-tag">APPLIED AI</span>
+                </div>
+                <h3 class="project-title">Axon AI — Customer Service Copilot</h3>
+                <p class="project-subtitle">Chrome extension delivering real-time knowledge-base suggestions to support
+                  agents.</p>
+              </div>
+            </div>
+            <div class="project-hero-placeholder">
+              <div class="project-hero-inner">
+                <span class="project-hero-name">Axon AI</span>
+                <span class="project-hero-sub">Chrome Extension · In Production at FIDO</span>
+              </div>
+            </div>
+            <div class="project-details case-grid">
+              <div>
+                <div class="detail-label">PROBLEM</div>
+                <p class="detail-text">Customer service agents at FIDO Micro Credit manually searched knowledge bases
+                  during live chats, slowing response times and leading to inconsistent answers across the support team.
+                </p>
+              </div>
+              <div>
+                <div class="detail-label">SOLUTION</div>
+                <p class="detail-text">Built an AI-powered Chrome extension that monitors live chat conversations and
+                  surfaces relevant knowledge-base articles in real-time. Agents get instant suggestions without leaving
+                  their chat window. Now used in production at FIDO.</p>
+              </div>
+              <div>
+                <div class="detail-label">TECHNICAL CHALLENGES</div>
+                <ul class="detail-list">
+                  <li>Matching conversational context to KB articles with low latency.</li>
+                  <li>Designing a non-intrusive UI overlay that doesn't disrupt the agent's workflow.</li>
+                  <li>Handling diverse query patterns across different product lines.</li>
+                </ul>
+              </div>
+              <div>
+                <div class="detail-label">KEY FEATURES</div>
+                <ul class="detail-list">
+                  <li>Real-time chat monitoring with contextual KB retrieval.</li>
+                  <li>In-browser overlay for seamless agent experience.</li>
+                  <li>Production deployment currently used by FIDO support team.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="project-stats">
+              <div class="project-stat-border">
+                <div class="project-stat-value">30%</div>
+                <div class="project-stat-label">FASTER RESPONSES</div>
+              </div>
+              <div class="project-stat-border">
+                <div class="project-stat-value">In Prod</div>
+                <div class="project-stat-label">AT FIDO</div>
+              </div>
+              <div class="project-stat">
+                <div class="project-stat-value">Real-time</div>
+                <div class="project-stat-label">KB SUGGESTIONS</div>
+              </div>
+            </div>
+            <div class="project-tags">
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">Chrome APIs</span>
+              <span class="tech-tag">AI / NLP</span>
+              <span class="tech-tag">REST APIs</span>
+            </div>
+          </article>
+
+          <!-- Project 05: Ashesi Logistics Dashboards -->
+          <article data-reveal class="project">
+            <div class="project-header">
+              <div>
+                <div class="project-meta"><span class="project-num">05</span><span class="project-tag">FULL-STACK</span>
+                </div>
+                <h3 class="project-title">Ashesi Logistics — Operations Dashboards</h3>
+                <p class="project-subtitle">Suite of 3 dashboards for resource monitoring, maintenance tracking, and
+                  campus issue reporting.</p>
+              </div>
+            </div>
+            <div class="project-img-wrap">
+              <img src="./assets/images/ashesi-ppm.png" alt="Ashesi Logistics — maintenance calendar dashboard" class="project-img">
+            </div>
+            <div class="project-details case-grid">
+              <div>
+                <div class="detail-label">PROBLEM</div>
+                <p class="detail-text">The university logistics team lacked real-time visibility into utility systems.
+                  Maintenance tasks were tracked manually with no automated reminders, and students had no direct
+                  channel to report location-specific issues on campus.</p>
+              </div>
+              <div>
+                <div class="detail-label">SOLUTION</div>
+                <p class="detail-text">Built three interconnected dashboards: real-time resource monitoring for 4 water
+                  tanks and 2 treatment pipes, a preventive maintenance system managing 228 scheduled tasks with
+                  automated daily email alerts, and an issue-reporting portal with a 360° virtual campus tour for
+                  location-pinned reports.</p>
+              </div>
+              <div>
+                <div class="detail-label">TECHNICAL CHALLENGES</div>
+                <ul class="detail-list">
+                  <li>Integrating real-time sensor data into a responsive React dashboard.</li>
+                  <li>Automating daily maintenance emails to responsible personnel reliably.</li>
+                  <li>Building a 360° virtual tour with interactive issue-pinning on specific locations.</li>
+                </ul>
+              </div>
+              <div>
+                <div class="detail-label">KEY FEATURES</div>
+                <ul class="detail-list">
+                  <li>Real-time utility monitoring with actionable insights.</li>
+                  <li>228 scheduled maintenance tasks with zero-miss email alerts.</li>
+                  <li>360° campus tour with student-driven issue reporting.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="project-stats">
+              <div class="project-stat-border">
+                <div class="project-stat-value">228</div>
+                <div class="project-stat-label">MAINTENANCE TASKS</div>
+              </div>
+              <div class="project-stat-border">
+                <div class="project-stat-value">6</div>
+                <div class="project-stat-label">UTILITY SYSTEMS</div>
+              </div>
+              <div class="project-stat">
+                <div class="project-stat-value">360°</div>
+                <div class="project-stat-label">CAMPUS TOUR</div>
+              </div>
+            </div>
+            <div class="project-tags">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">Email Automation</span>
+              <span class="tech-tag">REST APIs</span>
+            </div>
+          </article>
+
+          <!-- Project 06: Code Endelea -->
+          <article data-reveal class="project">
+            <div class="project-header">
+              <div>
+                <div class="project-meta"><span class="project-num">06</span><span class="project-tag">CO-FOUNDER /
+                    FULL-STACK</span></div>
+                <h3 class="project-title">Code Endelea — Interactive Coding Education</h3>
+                <p class="project-subtitle">One platform where students watch, pause, code, and run, with an AI tutor
+                  guiding every step.</p>
+              </div>
+              <div class="project-actions">
+                <a href="https://codeendelea.com" target="_blank" class="project-live-link"
+                  style-hover="background:var(--accent-soft)">Live ↗</a>
+              </div>
+            </div>
+            <div class="project-img-wrap">
+              <img src="./assets/images/code-endelea.png" alt="Code Endelea — watch, code, run in one tab" class="project-img">
+            </div>
+            <div class="project-details case-grid">
+              <div>
+                <div class="detail-label">PROBLEM</div>
+                <p class="detail-text">Students learning to code constantly switch between tutorial videos, IDEs, and AI
+                  tools across multiple tabs. This breaks focus, kills momentum, and makes learning harder than it needs
+                  to be, especially for beginners at universities and bootcamps.</p>
+              </div>
+              <div>
+                <div class="detail-label">SOLUTION</div>
+                <p class="detail-text">Built an all-in-one platform where students watch guided tutorials, pause to
+                  write real code in a browser-based IDE, run it instantly, and get help from Endi, an AI tutor that
+                  guides rather than gives answers. Everything happens in a single tab with zero setup required.</p>
+              </div>
+              <div>
+                <div class="detail-label">TECHNICAL CHALLENGES</div>
+                <ul class="detail-list">
+                  <li>Building a browser-based code execution environment supporting Python, JavaScript, Java, C++,
+                    Rust, and Go.</li>
+                  <li>Implementing payment gating and video locking for monetized content.</li>
+                  <li>Auditing the video processing pipeline and benchmarking processing times for optimization.</li>
+                </ul>
+              </div>
+              <div>
+                <div class="detail-label">KEY FEATURES</div>
+                <ul class="detail-list">
+                  <li>Integrated video + IDE + AI tutor in a single tab.</li>
+                  <li>Payment and video locking for content monetization.</li>
+                  <li>OWASP Top 10 security audit and cookie/caching hardening.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="project-stats">
+              <div class="project-stat-border">
+                <div class="project-stat-value">11</div>
+                <div class="project-stat-label">TICKETS WORKED</div>
+              </div>
+              <div class="project-stat-border">
+                <div class="project-stat-value">6+</div>
+                <div class="project-stat-label">LANGUAGES SUPPORTED</div>
+              </div>
+              <div class="project-stat">
+                <div class="project-stat-value">OWASP</div>
+                <div class="project-stat-label">SECURITY AUDITED</div>
+              </div>
+            </div>
+            <div class="project-tags">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Next.js</span>
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">AI / LLMs</span>
+              <span class="tech-tag">Code Execution</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ===================== EXPERIENCE ===================== -->
+      <section id="experience" class="section">
+        <div class="container">
+          <div data-reveal class="section-tag">// 03 — EXPERIENCE</div>
+          <h2 data-reveal class="section-title-lg">Growing fast, shipping faster.</h2>
+          <div class="timeline">
+
+            <div data-reveal class="timeline-item">
+              <span class="timeline-dot"></span>
+              <div class="timeline-header">
+                <h3 class="timeline-title">Backend Intern · <span class="timeline-accent">SAI Technology</span></h3>
+                <span class="timeline-date">Mar 2026 — Present</span>
+              </div>
+              <p class="timeline-desc">Backend engineer on the SWIFT-OS transport platform and Casa360 AI property
+                management SaaS. Ship features and bug fixes across both products.</p>
+              <ul class="timeline-list">
+                <li>Built the full Route &amp; Transit Management API for SWIFT Transport (bus stops, pricing,
+                  scheduling).</li>
+                <li>Shipped 25+ fixes on Casa360: race conditions, Docker hardening, React Query cache correctness.</li>
+                <li>Introduced Jest coverage thresholds in CI and shared validation pipes across endpoints.</li>
+              </ul>
+              <div class="timeline-tags"><span class="timeline-tag">NestJS</span><span
+                  class="timeline-tag">TypeScript</span><span class="timeline-tag">Next.js</span><span
+                  class="timeline-tag">Docker</span><span class="timeline-tag">Jest</span></div>
+            </div>
+
+            <div data-reveal class="timeline-item">
+              <span class="timeline-dot"></span>
+              <div class="timeline-header">
+                <h3 class="timeline-title">Co-Founder &amp; Full-Stack Developer · <span class="timeline-accent">Code
+                    Endelea</span></h3>
+                <span class="timeline-date">Dec 2024 — Present</span>
+              </div>
+              <p class="timeline-desc">Co-founded an interactive coding education platform where students watch
+                tutorials, write code, and get AI-guided help in a single tab.</p>
+              <ul class="timeline-list">
+                <li>Built payment gating and video locking for content monetization.</li>
+                <li>Conducted OWASP Top 10 security audit and cookie/caching hardening.</li>
+                <li>Audited and optimized the video processing pipeline for faster processing times.</li>
+              </ul>
+              <div class="timeline-tags"><span class="timeline-tag">React</span><span
+                  class="timeline-tag">Next.js</span><span class="timeline-tag">TypeScript</span><span
+                  class="timeline-tag">AI / LLMs</span><span class="timeline-tag">Video Processing</span></div>
+            </div>
+
+            <div data-reveal class="timeline-item">
+              <span class="timeline-dot-past"></span>
+              <div class="timeline-header">
+                <h3 class="timeline-title">Software Developer · <span class="timeline-accent">Ashesi University
+                    Logistics</span></h3>
+                <span class="timeline-date">Feb 2026 — May 2026</span>
+              </div>
+              <p class="timeline-desc">Built a suite of operations dashboards for the university logistics team:
+                resource monitoring, preventive maintenance, and issue reporting.</p>
+              <ul class="timeline-list">
+                <li>Built a resource monitoring dashboard tracking 4 water tanks and 2 treatment pipes in real-time.
+                </li>
+                <li>Developed a preventive maintenance dashboard managing 228 scheduled tasks with automated daily email
+                  alerts.</li>
+                <li>Designed an issue-reporting dashboard with a 360° virtual campus tour for location-pinned reports.
+                </li>
+              </ul>
+              <div class="timeline-tags"><span class="timeline-tag">React</span><span
+                  class="timeline-tag">Node.js</span><span class="timeline-tag">REST APIs</span><span
+                  class="timeline-tag">Email Automation</span></div>
+            </div>
+
+            <div data-reveal class="timeline-item">
+              <span class="timeline-dot-past"></span>
+              <div class="timeline-header">
+                <h3 class="timeline-title">Data Intern · <span class="timeline-accent">FIDO Micro Credit</span></h3>
+                <span class="timeline-date">Jun 2025 — Aug 2025</span>
+              </div>
+              <p class="timeline-desc">Data analysis and AI engineering at a fintech company. Analyzed millions of loan
+                records and built an AI-powered Chrome extension for customer service.</p>
+              <ul class="timeline-list">
+                <li>Analyzed 2,797,709 loan disbursement and repayment records, contributing to a 7% reduction in
+                  default rates.</li>
+                <li>Contributed to an ETL pipeline processing Google Ads data weekly, cutting marketing analysis time by
+                  20%.</li>
+                <li>Engineered Axon AI, a Chrome extension that increased customer service response speed by 30%.</li>
+              </ul>
+              <div class="timeline-tags"><span class="timeline-tag">Python</span><span
+                  class="timeline-tag">Pandas</span><span class="timeline-tag">Snowflake</span><span
+                  class="timeline-tag">JavaScript</span><span class="timeline-tag">Chrome APIs</span></div>
+            </div>
+
+            <div data-reveal class="timeline-item">
+              <span class="timeline-dot-past"></span>
+              <div class="timeline-header">
+                <h3 class="timeline-title">ML Researcher · <span class="timeline-accent">Algoverse AI Research</span>
+                </h3>
+                <span class="timeline-date">Nov 2024 — Apr 2025</span>
+              </div>
+              <p class="timeline-desc">Applied machine learning researcher focused on evaluating LLM reasoning
+                capabilities on formal logic problems.</p>
+              <ul class="timeline-list">
+                <li>Trained and tested GPT-4o to solve formal logic problems, reaching 95.97% accuracy on the practice
+                  dataset.</li>
+                <li>Demonstrated strong generalization with 99.89% accuracy on completely new logical problems.</li>
+                <li>Co-authored a research paper presented at the NAACL Student Research Workshop (2,307+ attendees).
+                </li>
+              </ul>
+              <div class="timeline-tags"><span class="timeline-tag">Python</span><span
+                  class="timeline-tag">GPT-4o</span><span class="timeline-tag">PyTorch</span><span
+                  class="timeline-tag">Formal Logic</span></div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== SKILLS ===================== -->
+      <section id="skills" class="section-surface">
+        <div class="container">
+          <div data-reveal class="section-tag">// 04 — SKILLS</div>
+          <h2 data-reveal class="section-title-md">The tools I work with.</h2>
+          <div class="skills-container skills-grid">
+
+            <div data-reveal class="skills-card">
+              <div class="skills-card-title"><span class="skills-card-icon">◆</span> Languages</div>
+              <div class="skill-tag-wrap"><span class="skill-tag">Python</span><span class="skill-tag">Java</span><span
+                  class="skill-tag">TypeScript</span><span class="skill-tag">HTML</span><span
+                  class="skill-tag">CSS</span><span class="skill-tag">SQL</span></div>
+            </div>
+
+            <div data-reveal class="skills-card">
+              <div class="skills-card-title"><span class="skills-card-icon">◆</span> Frontend</div>
+              <div class="skill-tag-wrap"><span class="skill-tag">React</span><span
+                  class="skill-tag">Next.js</span><span class="skill-tag">Tailwind CSS</span><span
+                  class="skill-tag">Responsive Design</span></div>
+            </div>
+
+            <div data-reveal class="skills-card">
+              <div class="skills-card-title"><span class="skills-card-icon">◆</span> Backend</div>
+              <div class="skill-tag-wrap"><span class="skill-tag">NestJS</span><span
+                  class="skill-tag">Node.js</span><span class="skill-tag">REST APIs</span><span
+                  class="skill-tag">Jest</span></div>
+            </div>
+
+            <div data-reveal class="skills-card">
+              <div class="skills-card-title"><span class="skills-card-icon">◆</span> Databases &amp; Cloud</div>
+              <div class="skill-tag-wrap"><span class="skill-tag">MySQL</span><span
+                  class="skill-tag">PostgreSQL</span><span class="skill-tag">Snowflake</span><span
+                  class="skill-tag">Vercel</span></div>
+            </div>
+
+            <div data-reveal class="skills-card">
+              <div class="skills-card-title"><span class="skills-card-icon">◆</span> AI &amp; Machine Learning</div>
+              <div class="skill-tag-wrap"><span class="skill-tag">PyTorch</span><span
+                  class="skill-tag">TensorFlow</span><span class="skill-tag">Scikit-learn</span><span
+                  class="skill-tag">HuggingFace</span><span class="skill-tag">Pandas</span><span
+                  class="skill-tag">NumPy</span></div>
+            </div>
+
+            <div data-reveal class="skills-card">
+              <div class="skills-card-title"><span class="skills-card-icon">◆</span> Tools &amp; Platforms</div>
+              <div class="skill-tag-wrap"><span class="skill-tag">Git / GitHub</span><span
+                  class="skill-tag">Postman</span><span class="skill-tag">Jupyter</span><span
+                  class="skill-tag">Overleaf</span><span class="skill-tag">Chrome APIs</span></div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== CONTACT ===================== -->
+      <section id="contact" class="section">
+        <div class="contact-container contact-grid">
+          <div data-reveal>
+            <div class="contact-tag">// 05 — CONTACT</div>
+            <h2 class="contact-title">Let's build something together.</h2>
+            <p class="contact-desc">I'm currently open to internships and new grad engineering roles, especially teams
+              working on backend systems, AI tools, or data infrastructure. Always happy to talk shop.</p>
+            <div class="contact-status">
+              <span class="contact-status-dot"></span>
+              <span class="contact-status-text">Available · responds within 24h</span>
+            </div>
+            <div class="contact-links">
+              <a href="mailto:shaunemensah@gmail.com" class="contact-link"
+                style-hover="border-color:var(--accent)"><span class="contact-link-label">EMAIL</span><span
+                  class="contact-link-text">shaunemensah@gmail.com</span></a>
+              <a href="https://www.linkedin.com/in/shaun-esua-mensah" target="_blank" class="contact-link"
+                style-hover="border-color:var(--accent)"><span class="contact-link-label">LINKEDIN</span><span
+                  class="contact-link-text">/in/shaun-esua-mensah ↗</span></a>
+              <a href="https://github.com/aifoli-ms" target="_blank" class="contact-link"
+                style-hover="border-color:var(--accent)"><span class="contact-link-label">GITHUB</span><span
+                  class="contact-link-text">@aifoli-ms ↗</span></a>
+            </div>
+          </div>
+          <div data-reveal>
+            <form onSubmit="{{ onFormSubmit }}" class="contact-form">
+              <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+              <input type="hidden" name="subject" value="New message from portfolio">
+              <input type="hidden" name="from_name" value="Portfolio Contact Form">
+              <div class="form-row">
+                <div class="form-field"><label class="form-label">NAME</label><input name="name" required
+                    placeholder="Kwame Asante" class="form-input" style-focus="border-color:var(--accent)"></div>
+                <div class="form-field"><label class="form-label">EMAIL</label><input name="email" required type="email"
+                    placeholder="you@company.com" class="form-input" style-focus="border-color:var(--accent)"></div>
+              </div>
+              <div class="form-field"><label class="form-label">COMPANY / ROLE</label><input name="company"
+                  placeholder="Andela · Engineering Lead" class="form-input" style-focus="border-color:var(--accent)">
+              </div>
+              <div class="form-field"><label class="form-label">MESSAGE</label><textarea name="message" required
+                  rows="4" placeholder="Tell me about the team and what you're building…" class="form-textarea"
+                  style-focus="border-color:var(--accent)"></textarea></div>
+              <button type="submit" class="form-submit" style-hover="filter:brightness(1.07)">{{ submitLabel }}</button>
+              <sc-if value="{{ toast }}" hint-placeholder-val="{{ false }}">
+                <div class="toast" style="color:{{ toastColor }}">{{ toastIcon }} {{ toast }}</div>
+              </sc-if>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== FOOTER ===================== -->
+      <footer class="footer">
+        <div class="footer-inner">
+          <div class="footer-copy">© 2026 Shaun Esua-Mensah</div>
+          <div class="footer-links"><a href="https://github.com/aifoli-ms" target="_blank" class="footer-link"
+              style-hover="color:var(--accent)">GitHub</a><a href="https://www.linkedin.com/in/shaun-esua-mensah"
+              target="_blank" class="footer-link" style-hover="color:var(--accent)">LinkedIn</a><button
+              onClick="{{ openResume }}" class="footer-link" style-hover="color:var(--accent)">Résumé</button></div>
+        </div>
+      </footer>
+
+      <!-- ===================== RESUME MODAL ===================== -->
+      <sc-if value="{{ showResume }}" hint-placeholder-val="{{ false }}">
+        <div onClick="{{ closeResume }}" class="no-print resume-overlay">
+          <div onClick="{{ stop }}" class="resume-modal">
+            <div class="no-print resume-toolbar">
+              <div class="resume-filename">resume_shaun_esua_mensah.pdf</div>
+              <div class="resume-toolbar-btns">
+                <button onClick="{{ printResume }}" class="resume-download-btn">Download PDF ↓</button>
+                <button onClick="{{ closeResume }}" class="resume-close-btn">Close ✕</button>
+              </div>
+            </div>
+            <div id="resumeSheet" class="resume-sheet">
+              <div class="resume-header">
+                <div>
+                  <div class="resume-name">Shaun Ato Aifoli Esua-Mensah</div>
+                  <div class="resume-role">Software Engineer &amp; AI Researcher</div>
+                </div>
+                <div class="resume-contact">shaunemensah@gmail.com<br>github.com/aifoli-ms<br>Ghana</div>
+              </div>
+              <p class="resume-summary">Computer science student at Ashesi University with hands-on experience in
+                backend engineering, AI/ML research, and data analytics. Built production APIs, shipped 36+ tickets
+                across two SaaS platforms, and co-authored a research paper presented at NAACL.</p>
+
+              <div class="resume-section-title">EXPERIENCE</div>
+              <div class="resume-entry">
+                <div class="resume-entry-header"><b class="resume-entry-title">Backend Intern — SAI Technology</b><span
+                    class="resume-entry-date">Mar 2026 — Present</span></div>
+                <ul class="resume-entry-list">
+                  <li>Built Route &amp; Transit Management API for SWIFT Transport (bus stops, pricing, scheduling).
+                  </li>
+                  <li>Shipped 25+ fixes on Casa360: race conditions, Docker hardening, React Query cache correctness.
+                  </li>
+                  <li>Introduced Jest coverage thresholds in CI and shared validation pipes across endpoints.</li>
+                </ul>
+              </div>
+              <div class="resume-entry">
+                <div class="resume-entry-header"><b class="resume-entry-title">Co-Founder &amp; Full-Stack Developer —
+                    Code Endelea</b><span class="resume-entry-date">Dec 2024 — Present</span></div>
+                <ul class="resume-entry-list">
+                  <li>Co-founded interactive coding education platform with AI tutor, browser IDE, and video tutorials.
+                  </li>
+                  <li>Built payment gating, video locking, and conducted OWASP Top 10 security audit.</li>
+                </ul>
+              </div>
+              <div class="resume-entry">
+                <div class="resume-entry-header"><b class="resume-entry-title">Software Developer — Ashesi University
+                    Logistics</b><span class="resume-entry-date">Feb — May 2026</span></div>
+                <ul class="resume-entry-list">
+                  <li>Built resource monitoring dashboard tracking 4 water tanks and 2 treatment pipes in real-time.
+                  </li>
+                  <li>Developed preventive maintenance dashboard managing 228 tasks with automated daily email alerts.
+                  </li>
+                </ul>
+              </div>
+              <div class="resume-entry">
+                <div class="resume-entry-header"><b class="resume-entry-title">Data Intern — FIDO Micro Credit</b><span
+                    class="resume-entry-date">Jun — Aug 2025</span></div>
+                <ul class="resume-entry-list">
+                  <li>Analyzed 2.8M+ loan records, contributing to 7% reduction in default rates.</li>
+                  <li>Engineered Axon AI Chrome extension that increased CS response speed by 30%.</li>
+                </ul>
+              </div>
+              <div class="resume-entry-last">
+                <div class="resume-entry-header"><b class="resume-entry-title">ML Researcher — Algoverse AI
+                    Research</b><span class="resume-entry-date">Nov 2024 — Apr 2025</span></div>
+                <ul class="resume-entry-list">
+                  <li>Trained GPT-4o on formal logic — 95.97% accuracy; 99.89% on unseen problems.</li>
+                  <li>Co-authored paper presented at NAACL Student Research Workshop (2,307+ attendees).</li>
+                </ul>
+              </div>
+
+              <div class="resume-grid">
+                <div>
+                  <div class="resume-skills-title">SKILLS</div>
+                  <p class="resume-skills-text">Python · Java · TypeScript · NestJS · React · Next.js · PostgreSQL ·
+                    MySQL · Snowflake · PyTorch · TensorFlow · Scikit-learn · Pandas</p>
+                </div>
+                <div>
+                  <div class="resume-skills-title">EDUCATION</div><b class="resume-edu-title">BSc. Computer Science</b>
+                  <div class="resume-edu-detail">Ashesi University · Expected Jun 2027</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+
+    </div>
+  </x-dc>
+  <script type="text/x-dc" data-dc-script
+    data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:820}}">
+const Component = window.__PortfolioComponent(DCLogic);
+</script>
+</body>
+
+</html>
