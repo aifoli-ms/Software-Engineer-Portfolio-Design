@@ -822,9 +822,9 @@
           </div>
           <div data-reveal>
             <form onSubmit="{{ onFormSubmit }}" class="contact-form">
-              <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
-              <input type="hidden" name="subject" value="New message from portfolio">
-              <input type="hidden" name="from_name" value="Portfolio Contact Form">
+              <input type="hidden" name="_subject" value="New message from portfolio">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_template" value="table">
               <div class="form-row">
                 <div class="form-field"><label class="form-label">NAME</label><input name="name" required
                     placeholder="Kwame Asante" class="form-input" style-focus="border-color:var(--accent)"></div>

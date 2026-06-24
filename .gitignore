@@ -6,3 +6,4 @@ node_modules/
 .firecrawl/
 assets/screenshots/
 assets/images/screenshot-misc.png
+.vercel

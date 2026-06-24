@@ -105,13 +105,13 @@ window.__PortfolioComponent = function(DCLogic) { return class Component extends
     const form = e.target;
     this.setState({ sending: true, toast: '' });
     try {
-      const res = await fetch('https://api.web3forms.com/submit', {
+      const res = await fetch('https://formsubmit.co/ajax/shaunemensah@gmail.com', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify(Object.fromEntries(new FormData(form)))
       });
       const data = await res.json();
-      if (data.success) {
+      if (data.success === 'true' || data.success === true) {
         this.setState({ sending: false, toast: "Thanks! I'll be in touch within 24h." });
         form.reset();
       } else {
