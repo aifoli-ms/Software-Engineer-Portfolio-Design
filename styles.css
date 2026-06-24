@@ -1258,6 +1258,7 @@ input, textarea {
   .hero-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
   .hero-content { grid-template-columns: 1fr !important; gap: 40px !important; }
   .about-grid, .contact-grid { grid-template-columns: 1fr !important; gap: 36px !important; }
+  .about-grid-layout { grid-template-columns: 1fr !important; gap: 36px !important; }
   .contact-container { grid-template-columns: 1fr !important; gap: 36px !important; }
   .case-grid { grid-template-columns: 1fr !important; gap: 22px !important; }
   .project-details { grid-template-columns: 1fr !important; gap: 22px !important; }
@@ -1266,11 +1267,30 @@ input, textarea {
   .compact-projects { grid-template-columns: 1fr !important; }
   .nav-desk { display: none !important; }
   .nav-burger { display: grid !important; }
+  .hero { padding: 130px 24px 70px; }
+  .section { padding: 72px 24px; }
+  .section-surface { padding: 72px 24px; }
+  .hero-right { align-items: center; }
+  .profile-frame { max-width: 220px; }
+  .resume-sheet { padding: 36px 32px; }
+  .resume-grid { grid-template-columns: 1fr; gap: 20px; }
 }
 
 @media (max-width: 720px) {
   .stat-grid { grid-template-columns: 1fr 1fr !important; }
   .stat-strip { grid-template-columns: 1fr 1fr !important; }
+  .project-stats { grid-template-columns: 1fr; }
+  .project-stat-border { border-right: none; border-bottom: 1px solid var(--border); }
+  .project-header { padding: 22px 20px; }
+  .project-details { padding: 22px 20px; }
+  .project-tags { padding: 16px 20px; }
+  .nav-logo-text { font-size: 14px; }
+  .hero-buttons { gap: 10px; }
+  .stat-strip { margin-top: 48px; }
+  .section-desc { margin-bottom: 36px; }
+  .resume-entry-header { flex-direction: column; gap: 2px; }
+  .resume-header { flex-direction: column; align-items: flex-start; }
+  .resume-contact { text-align: left; }
 }
 
 @media (max-width: 560px) {
@@ -1278,6 +1298,57 @@ input, textarea {
   .skills-container { grid-template-columns: 1fr !important; }
   .compact-projects { grid-template-columns: 1fr !important; }
   .form-row { grid-template-columns: 1fr !important; }
+  .hero { padding: 110px 16px 56px; }
+  .section { padding: 56px 16px; }
+  .section-surface { padding: 56px 16px; }
+  .nav-inner { padding: 0 16px; }
+  .mobile-menu-inner { padding: 14px 16px; }
+  .footer { padding: 32px 16px; }
+  .stat-strip { gap: 12px; margin-top: 36px; }
+  .stat-card { padding: 18px; }
+  .stat-value { font-size: 28px; }
+  .project-stat-value { font-size: 20px; }
+  .project-title { font-size: 22px; }
+  .project-header { flex-direction: column; gap: 12px; }
+  .project-actions { align-self: flex-start; }
+  .project-stat { padding: 16px 20px; }
+  .project-stat-border { padding: 16px 20px; }
+  .timeline { padding-left: 24px; }
+  .timeline-dot { left: -33px; width: 14px; height: 14px; }
+  .timeline-dot-past { left: -33px; width: 14px; height: 14px; }
+  .timeline-title { font-size: 18px; }
+  .contact-form { padding: 20px; }
+  .resume-overlay { padding: 20px 12px; }
+  .resume-sheet { padding: 28px 20px; }
+  .resume-name { font-size: 24px; }
+  .resume-toolbar { flex-direction: column; align-items: flex-start; }
+  .resume-toolbar-btns { width: 100%; }
+  .resume-download-btn { flex: 1; text-align: center; }
+  .resume-close-btn { text-align: center; }
+  .profile-frame { max-width: 180px; }
+  .code-body { font-size: 11px; padding: 14px; }
+  .hero-desc { margin-bottom: 28px; }
+  .hero-buttons { margin-bottom: 28px; }
+  .hero-title { margin-bottom: 18px; }
+  .compact-card { padding: 18px; }
+}
+
+@media (max-width: 400px) {
+  .stat-strip { grid-template-columns: 1fr !important; }
+  .nav-logo-text { font-size: 12px; }
+  .nav-inner { height: 58px; gap: 12px; padding: 0 14px; }
+  .hero { padding: 100px 14px 48px; }
+  .section { padding: 48px 14px; }
+  .section-surface { padding: 48px 14px; }
+  .resume-btn { padding: 8px 12px; font-size: 13px; }
+  .theme-btn { width: 34px; height: 34px; }
+  .btn-primary, .btn-secondary, .btn-ghost { padding: 12px 18px; font-size: 14px; }
+  .hero-links { gap: 8px; }
+  .social-link { padding: 7px 11px; font-size: 12px; }
+  .social-link-accent { padding: 7px 11px; font-size: 12px; }
+  .footer-inner { flex-direction: column; text-align: center; }
+  .project-hero-name { font-size: 28px; }
+  .view-all-btn { padding: 12px 24px; font-size: 14px; }
 }
 
 @media print {
