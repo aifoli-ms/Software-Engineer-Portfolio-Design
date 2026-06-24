@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>All Work — Shaun Esua-Mensah</title>
+  <meta name="description" content="All projects by Shaun Esua-Mensah: backend APIs, AI tools, full-stack dashboards, and research.">
+  <meta property="og:title" content="All Work — Shaun Esua-Mensah">
+  <meta property="og:description" content="Backend systems, AI tools, and full-stack products. CS student at Ashesi University with research published at NAACL.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="./assets/images/profile.jpg">
+  <script src="./support.js"></script>
+</head>
+
+<body>
+  <x-dc>
+    <helmet>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=Carlito:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+      <link rel="stylesheet" href="./styles.css">
+    </helmet>
+    <div ref="{{ setRoot }}" class="root"
+      style="--bg:#eef2f7;--surface:#f6f8fb;--surface2:#ffffff;--fg:#0f1b2d;--muted:#4a5e7a;--faint:#7889a0;--border:rgba(15,27,45,.12);--accent:#06b6d4;--accent-soft:rgba(6,182,212,.10)">
+
+      <!-- ===================== NAV ===================== -->
+      <nav class="nav">
+        <div class="nav-inner">
+          <a href="./index.html" class="nav-logo">
+            <span class="nav-logo-icon">SE</span>
+            <span class="nav-logo-text">&larr; Back</span>
+          </a>
+          <div class="nav-actions">
+            <button onClick="{{ toggleTheme }}" aria-label="Toggle theme" class="theme-btn">{{ themeIcon }}</button>
+          </div>
+        </div>
+      </nav>
+
+      <!-- ===================== ALL WORK ===================== -->
+      <section class="section" style="padding-top:130px;">
+        <div class="container">
+          <div data-reveal class="section-tag">// ALL WORK</div>
+          <h2 data-reveal class="section-title-sm">Seven projects, real impact.</h2>
+          <p data-reveal class="section-desc">From production APIs to AI tools and research. Each project below covers
+            the problem, the approach, what was hard, and what it moved.</p>
+
+          <!-- Project 01: SWIFT Transport -->
+          <article id="project-01" data-reveal class="project">
+            <div class="project-header">
+              <div>
+                <div class="project-meta"><span class="project-num">01</span><span class="project-tag">BACKEND</span>
+                </div>
+                <h3 class="project-title">SWIFT Transport — Bus Booking Platform</h3>
+                <p class="project-subtitle">Backend APIs powering real-time trip search, booking, and digital ticketing
+                  for 19+ bus operators across Ghana.</p>
+              </div>
+              <div class="project-actions">
+                <a href="https://www.swifttransport.app" target="_blank" class="project-live-link"
+                  style-hover="background:var(--accent-soft)">Live ↗</a>
+              </div>
+            </div>
+            <div class="project-img-wrap">
+              <img src="./assets/images/swift-os.png" alt="SWIFT Transport — trip search &amp; booking flow" class="project-img">
+            </div>
+            <div class="project-details case-grid">
+              <div>
+                <div class="detail-label">PROBLEM</div>
+                <p class="detail-text">Bus travel in Ghana was fragmented: paper tickets, no price comparison, no seat
+                  selection. Operators had no shared digital infrastructure, and passengers had no way to compare
+                  options or book ahead reliably.</p>
+              </div>
+              <div>
+                <div class="detail-label">SOLUTION</div>
+                <p class="detail-text">Built the Route &amp; Transit Management API from scratch: bus stop CRUD, route
+                  segment pricing, scheduling, and state management. Added UserExistsByIdGuard for secure user-scoped
+                  routes, enforced runtime env validation, and introduced CI coverage thresholds.</p>
+              </div>
+              <div>
+                <div class="detail-label">TECHNICAL CHALLENGES</div>
+                <ul class="detail-list">
+                  <li>Designing a flexible route segment pricing model for diverse operator needs.</li>
+                  <li>Standardizing input validation across payment and payout endpoints.</li>
+                  <li>Establishing CI quality gates from zero (statement 69%, branch 48%, function 46%, line 68%).</li>
+                </ul>
+              </div>
+              <div>
+                <div class="detail-label">KEY FEATURES</div>
+                <ul class="detail-list">
+                  <li>Full route management API: stops, segments, pricing, schedules.</li>
+                  <li>Driver-to-vehicle assignment for bus owner organisations.</li>
+                  <li>Automated daily payouts (currently shipping).</li>
+                </ul>
+              </div>
+            </div>
+            <div class="project-stats">
+              <div class="project-stat-border">
+                <div class="project-stat-value">11+</div>
+                <div class="project-stat-label">TICKETS SHIPPED</div>
+              </div>
+              <div class="project-stat-border">
+                <div class="project-stat-value">19+</div>
+                <div class="project-stat-label">BUS OPERATORS</div>
+              </div>
+              <div class="project-stat">
+                <div class="project-stat-value">iOS + Android</div>
+                <div class="project-stat-label">MOBILE APPS</div>
+              </div>
+            </div>
+            <div class="project-tags">
+              <span class="tech-tag">NestJS</span>
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">REST APIs</span>
+              <span class="tech-tag">Jest</span>
+            </div>
+          </article>
+
+          <!-- Project 02: Casa360 -->
+          <article id="project-02" data-reveal class="project">
+            <div class="project-header">
+              <div>
+                <div class="project-meta"><span class="project-num">02</span><span class="project-tag">FULL-STACK /
+                    AI</span></div>
+                <h3 class="project-title">Casa360 — AI Property Management</h3>
+                <p class="project-subtitle">AI-powered platform for tenant management, automated rent collection, and
+                  vendor matching.</p>
+              </div>
+              <div class="project-actions">
+                <a href="https://www.casa360.app" target="_blank" class="project-live-link"
+                  style-hover="background:var(--accent-soft)">Live ↗</a>
+              </div>
+            </div>
+            <div class="project-img-wrap">
+              <img src="./assets/images/casa-360.png" alt="Casa360 — property &amp; tenant overview" class="project-img">
+            </div>
+            <div class="project-details case-grid">
+              <div>
+                <div class="detail-label">PROBLEM</div>
+                <p class="detail-text">Property owners juggled tenants, payments, and maintenance across different
+                  tools. Service providers struggled with inconsistent jobs, low visibility, and delayed payments. The
+                  system didn't work smoothly for either side.</p>
+              </div>
+              <div>
+                <div class="detail-label">SOLUTION</div>
+                <p class="detail-text">Full-stack SaaS platform with AI assistant (Cassie) for automated workflows:
+                  tenant onboarding, rent follow-ups, vendor matching, and real-time financial dashboards. Shipped 25+
+                  bug fixes spanning transaction safety, Docker hardening, and React Query cache correctness.</p>
+              </div>
+              <div>
+                <div class="detail-label">TECHNICAL CHALLENGES</div>
+                <ul class="detail-list">
+                  <li>Fixed TOCTOU race conditions in payment processing (transaction safety).</li>
+                  <li>Resolved Docker signal-forwarding and graceful shutdown for multi-replica deployments.</li>
+                  <li>Hardened bulk import atomicity and multi-org auth context.</li>
+                </ul>
+              </div>
+              <div>
+                <div class="detail-label">KEY FEATURES</div>
+                <ul class="detail-list">
+                  <li>React Query cache invalidation fixes across vendor, payment, and invoice flows.</li>
+                  <li>Secured production by gating Swagger docs and preventing DTO field injection.</li>
+                  <li>AI-powered tenant workflows, vendor matching, and financial reporting.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="project-stats">
+              <div class="project-stat-border">
+                <div class="project-stat-value">25+</div>
+                <div class="project-stat-label">TICKETS SHIPPED</div>
+              </div>
+              <div class="project-stat-border">
+                <div class="project-stat-value">Race Fix</div>
+                <div class="project-stat-label">TOCTOU RESOLVED</div>
+              </div>
+              <div class="project-stat">
+                <div class="project-stat-value">Multi-Org</div>
+                <div class="project-stat-label">AUTH HARDENED</div>
+              </div>
+            </div>
+            <div class="project-tags">
+              <span class="tech-tag">Next.js</span>
+              <span class="tech-tag">NestJS</span>
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">Docker</span>
+              <span class="tech-tag">React Query</span>
+            </div>
+          </article>
+
+          <!-- Project 03: Equity Health Insurance -->
+          <article id="project-03" data-reveal class="project">
+            <div class="project-header">
+              <div>
+                <div class="project-meta"><span class="project-num">03</span><span class="project-tag">FULL-STACK</span>
+                </div>
+                <h3 class="project-title">Equity Health — Insurance Platform Rebuild</h3>
+                <p class="project-subtitle">Complete rebuild of a healthcare insurance website serving 682+ clients
+                  across Ghana.</p>
+              </div>
+              <div class="project-actions">
+                <a href="https://equity-health.vercel.app" target="_blank" class="project-live-link"
+                  style-hover="background:var(--accent-soft)">Live ↗</a>
+              </div>
+            </div>
+            <div class="project-img-wrap">
+              <img src="./assets/images/equity-health.png" alt="Equity Health Insurance — plan comparison &amp; enrollment"
+                class="project-img">
+            </div>
+            <div class="project-details case-grid">
+              <div>
+                <div class="detail-label">PROBLEM</div>
+                <p class="detail-text">Equity Health Insurance's website was outdated and didn't effectively showcase
+                  their 7 insurance products. Clients struggled to compare plans, understand coverage, and initiate
+                  enrollment online.</p>
+              </div>
+              <div>
+                <div class="detail-label">SOLUTION</div>
+                <p class="detail-text">Full-stack rebuild with modern architecture: plan comparison cards with clear
+                  pricing, client testimonials carousel, WhatsApp integration for quick consultations, and a fully
+                  responsive design optimized for mobile users across Ghana.</p>
+              </div>
+              <div>
+                <div class="detail-label">TECHNICAL CHALLENGES</div>
+                <ul class="detail-list">
+                  <li>Structuring 7 distinct plan types with varying features into a clear comparison UI.</li>
+                  <li>Optimizing load performance for low-bandwidth networks common in Ghana.</li>
+                  <li>Building a testimonials system that rotates across 8+ real client reviews.</li>
+                </ul>
+              </div>
+              <div>
+                <div class="detail-label">KEY FEATURES</div>
+                <ul class="detail-list">
+                  <li>7 plan comparison cards with transparent pricing (GH₵80–850/mo).</li>
+                  <li>WhatsApp-integrated consultation scheduling.</li>
+                  <li>Client testimonial carousel and trust signals.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="project-stats">
+              <div class="project-stat-border">
+                <div class="project-stat-value">7</div>
+                <div class="project-stat-label">INSURANCE PLANS</div>
+              </div>
+              <div class="project-stat-border">
+                <div class="project-stat-value">682+</div>
+                <div class="project-stat-label">TRUSTED CLIENTS</div>
+              </div>
+              <div class="project-stat">
+                <div class="project-stat-value">Nationwide</div>
+                <div class="project-stat-label">COVERAGE</div>
+              </div>
+            </div>
+            <div class="project-tags">
+              <span class="tech-tag">Next.js</span>
+              <span class="tech-tag">Tailwind CSS</span>
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">Vercel</span>
+            </div>
+          </article>
+
+          <!-- Project 04: Axon AI -->
+          <article id="project-04" data-reveal class="project">
+            <div class="project-header">
+              <div>
+                <div class="project-meta"><span class="project-num">04</span><span class="project-tag">APPLIED AI</span>
+                </div>
+                <h3 class="project-title">Axon AI — Customer Service Copilot</h3>
+                <p class="project-subtitle">Chrome extension delivering real-time knowledge-base suggestions to support
+                  agents.</p>
+              </div>
+            </div>
+            <div class="project-hero-placeholder">
+              <div class="project-hero-inner">
+                <span class="project-hero-name">Axon AI</span>
+                <span class="project-hero-sub">Chrome Extension · In Production at FIDO</span>
+              </div>
+            </div>
+            <div class="project-details case-grid">
+              <div>
+                <div class="detail-label">PROBLEM</div>
+                <p class="detail-text">Customer service agents at FIDO Micro Credit manually searched knowledge bases
+                  during live chats, slowing response times and leading to inconsistent answers across the support team.
+                </p>
+              </div>
+              <div>
+                <div class="detail-label">SOLUTION</div>
+                <p class="detail-text">Built an AI-powered Chrome extension that monitors live chat conversations and
+                  surfaces relevant knowledge-base articles in real-time. Agents get instant suggestions without leaving
+                  their chat window. Now used in production at FIDO.</p>
+              </div>
+              <div>
+                <div class="detail-label">TECHNICAL CHALLENGES</div>
+                <ul class="detail-list">
+                  <li>Matching conversational context to KB articles with low latency.</li>
+                  <li>Designing a non-intrusive UI overlay that doesn't disrupt the agent's workflow.</li>
+                  <li>Handling diverse query patterns across different product lines.</li>
+                </ul>
+              </div>
+              <div>
+                <div class="detail-label">KEY FEATURES</div>
+                <ul class="detail-list">
+                  <li>Real-time chat monitoring with contextual KB retrieval.</li>
+                  <li>In-browser overlay for seamless agent experience.</li>
+                  <li>Production deployment currently used by FIDO support team.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="project-stats">
+              <div class="project-stat-border">
+                <div class="project-stat-value">30%</div>
+                <div class="project-stat-label">FASTER RESPONSES</div>
+              </div>
+              <div class="project-stat-border">
+                <div class="project-stat-value">In Prod</div>
+                <div class="project-stat-label">AT FIDO</div>
+              </div>
+              <div class="project-stat">
+                <div class="project-stat-value">Real-time</div>
+                <div class="project-stat-label">KB SUGGESTIONS</div>
+              </div>
+            </div>
+            <div class="project-tags">
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">Chrome APIs</span>
+              <span class="tech-tag">AI / NLP</span>
+              <span class="tech-tag">REST APIs</span>
+            </div>
+          </article>
+
+          <!-- Project 05: Ashesi Logistics Dashboards -->
+          <article id="project-05" data-reveal class="project">
+            <div class="project-header">
+              <div>
+                <div class="project-meta"><span class="project-num">05</span><span class="project-tag">FULL-STACK</span>
+                </div>
+                <h3 class="project-title">Ashesi Logistics — Operations Dashboards</h3>
+                <p class="project-subtitle">Suite of 3 dashboards for resource monitoring, maintenance tracking, and
+                  campus issue reporting.</p>
+              </div>
+            </div>
+            <div class="project-img-wrap">
+              <img src="./assets/images/ashesi-ppm.png" alt="Ashesi Logistics — maintenance calendar dashboard" class="project-img">
+            </div>
+            <div class="project-details case-grid">
+              <div>
+                <div class="detail-label">PROBLEM</div>
+                <p class="detail-text">The university logistics team lacked real-time visibility into utility systems.
+                  Maintenance tasks were tracked manually with no automated reminders, and students had no direct
+                  channel to report location-specific issues on campus.</p>
+              </div>
+              <div>
+                <div class="detail-label">SOLUTION</div>
+                <p class="detail-text">Built three interconnected dashboards: real-time resource monitoring for 4 water
+                  tanks and 2 treatment pipes, a preventive maintenance system managing 228 scheduled tasks with
+                  automated daily email alerts, and an issue-reporting portal with a 360° virtual campus tour for
+                  location-pinned reports.</p>
+              </div>
+              <div>
+                <div class="detail-label">TECHNICAL CHALLENGES</div>
+                <ul class="detail-list">
+                  <li>Integrating real-time sensor data into a responsive React dashboard.</li>
+                  <li>Automating daily maintenance emails to responsible personnel reliably.</li>
+                  <li>Building a 360° virtual tour with interactive issue-pinning on specific locations.</li>
+                </ul>
+              </div>
+              <div>
+                <div class="detail-label">KEY FEATURES</div>
+                <ul class="detail-list">
+                  <li>Real-time utility monitoring with actionable insights.</li>
+                  <li>228 scheduled maintenance tasks with zero-miss email alerts.</li>
+                  <li>360° campus tour with student-driven issue reporting.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="project-stats">
+              <div class="project-stat-border">
+                <div class="project-stat-value">228</div>
+                <div class="project-stat-label">MAINTENANCE TASKS</div>
+              </div>
+              <div class="project-stat-border">
+                <div class="project-stat-value">6</div>
+                <div class="project-stat-label">UTILITY SYSTEMS</div>
+              </div>
+              <div class="project-stat">
+                <div class="project-stat-value">360°</div>
+                <div class="project-stat-label">CAMPUS TOUR</div>
+              </div>
+            </div>
+            <div class="project-tags">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">Email Automation</span>
+              <span class="tech-tag">REST APIs</span>
+            </div>
+          </article>
+
+          <!-- Project 06: Code Endelea -->
+          <article id="project-06" data-reveal class="project">
+            <div class="project-header">
+              <div>
+                <div class="project-meta"><span class="project-num">06</span><span class="project-tag">CO-FOUNDER /
+                    FULL-STACK</span></div>
+                <h3 class="project-title">Code Endelea — Interactive Coding Education</h3>
+                <p class="project-subtitle">One platform where students watch, pause, code, and run, with an AI tutor
+                  guiding every step.</p>
+              </div>
+              <div class="project-actions">
+                <a href="https://codeendelea.com" target="_blank" class="project-live-link"
+                  style-hover="background:var(--accent-soft)">Live ↗</a>
+              </div>
+            </div>
+            <div class="project-img-wrap">
+              <img src="./assets/images/code-endelea.png" alt="Code Endelea — watch, code, run in one tab" class="project-img">
+            </div>
+            <div class="project-details case-grid">
+              <div>
+                <div class="detail-label">PROBLEM</div>
+                <p class="detail-text">Students learning to code constantly switch between tutorial videos, IDEs, and AI
+                  tools across multiple tabs. This breaks focus, kills momentum, and makes learning harder than it needs
+                  to be, especially for beginners at universities and bootcamps.</p>
+              </div>
+              <div>
+                <div class="detail-label">SOLUTION</div>
+                <p class="detail-text">Built an all-in-one platform where students watch guided tutorials, pause to
+                  write real code in a browser-based IDE, run it instantly, and get help from Endi, an AI tutor that
+                  guides rather than gives answers. Everything happens in a single tab with zero setup required.</p>
+              </div>
+              <div>
+                <div class="detail-label">TECHNICAL CHALLENGES</div>
+                <ul class="detail-list">
+                  <li>Building a browser-based code execution environment supporting Python, JavaScript, Java, C++,
+                    Rust, and Go.</li>
+                  <li>Implementing payment gating and video locking for monetized content.</li>
+                  <li>Auditing the video processing pipeline and benchmarking processing times for optimization.</li>
+                </ul>
+              </div>
+              <div>
+                <div class="detail-label">KEY FEATURES</div>
+                <ul class="detail-list">
+                  <li>Integrated video + IDE + AI tutor in a single tab.</li>
+                  <li>Payment and video locking for content monetization.</li>
+                  <li>OWASP Top 10 security audit and cookie/caching hardening.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="project-stats">
+              <div class="project-stat-border">
+                <div class="project-stat-value">11</div>
+                <div class="project-stat-label">TICKETS WORKED</div>
+              </div>
+              <div class="project-stat-border">
+                <div class="project-stat-value">6+</div>
+                <div class="project-stat-label">LANGUAGES SUPPORTED</div>
+              </div>
+              <div class="project-stat">
+                <div class="project-stat-value">OWASP</div>
+                <div class="project-stat-label">SECURITY AUDITED</div>
+              </div>
+            </div>
+            <div class="project-tags">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Next.js</span>
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">AI / LLMs</span>
+              <span class="tech-tag">Code Execution</span>
+            </div>
+          </article>
+
+          <!-- Project 07: ADD YOUR PROJECT HERE -->
+
+        </div>
+      </section>
+
+      <!-- ===================== FOOTER ===================== -->
+      <footer class="footer">
+        <div class="footer-inner">
+          <div class="footer-copy">&copy; 2026 Shaun Esua-Mensah</div>
+          <div class="footer-links"><a href="https://github.com/aifoli-ms" target="_blank" class="footer-link"
+              style-hover="color:var(--accent)">GitHub</a><a href="https://www.linkedin.com/in/shaun-esua-mensah"
+              target="_blank" class="footer-link" style-hover="color:var(--accent)">LinkedIn</a></div>
+        </div>
+      </footer>
+
+    </div>
+  </x-dc>
+  <script type="text/x-dc" data-dc-script
+    data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:820}}">
+const Component = (function(DCLogic) { return class extends DCLogic {
+  state = { theme: 'light' };
+
+  themes = {
+    dark: {
+      '--bg':'#0a1120','--surface':'#0f1b2d','--surface2':'#162338','--fg':'#e8edf5',
+      '--muted':'#8b9bb5','--faint':'#5a6a84','--border':'rgba(232,237,245,.11)',
+      '--accent':'#22d3ee','--accent-soft':'rgba(6,182,212,.14)'
+    },
+    light: {
+      '--bg':'#eef2f7','--surface':'#f6f8fb','--surface2':'#ffffff','--fg':'#0f1b2d',
+      '--muted':'#4a5e7a','--faint':'#7889a0','--border':'rgba(15,27,45,.12)',
+      '--accent':'#06b6d4','--accent-soft':'rgba(6,182,212,.10)'
+    }
+  };
+
+  componentDidMount() {
+    let saved = 'dark';
+    try { saved = localStorage.getItem('jp-portfolio-theme') || 'light'; } catch(e) {}
+    this.setState({ theme: saved });
+    this.applyTheme(saved);
+    requestAnimationFrame(() => this.setupObservers());
+
+    // Scroll to hash target if present
+    if (window.location.hash) {
+      setTimeout(() => {
+        const target = document.querySelector(window.location.hash);
+        if (target) {
+          const y = target.getBoundingClientRect().top + window.scrollY - 80;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      }, 400);
+    }
+  }
+
+  applyTheme(t) {
+    const r = this.rootEl; if (!r) return;
+    const vars = this.themes[t] || this.themes.dark;
+    for (const k in vars) r.style.setProperty(k, vars[k]);
+  }
+
+  setupObservers() {
+    const root = this.rootEl || document;
+    const revs = root.querySelectorAll('[data-reveal]');
+    revs.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(26px)';
+      el.style.transition = 'opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1)';
+    });
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.style.opacity = '1';
+            e.target.style.transform = 'none';
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -7% 0px' });
+      revs.forEach(el => io.observe(el));
+    } else {
+      revs.forEach(el => { el.style.opacity = '1'; el.style.transform = 'none'; });
+    }
+  }
+
+  toggleTheme() {
+    const t = this.state.theme === 'dark' ? 'light' : 'dark';
+    this.setState({ theme: t });
+    this.applyTheme(t);
+    try { localStorage.setItem('jp-portfolio-theme', t); } catch(e) {}
+  }
+
+  renderVals() {
+    return {
+      setRoot: (el) => { this.rootEl = el; if (el) this.applyTheme(this.state.theme); },
+      themeIcon: this.state.theme === 'dark' ? '☀' : '☾',
+      toggleTheme: () => this.toggleTheme(),
+    };
+  }
+}; })(DCLogic);
+</script>
+</body>
+
+</html>
