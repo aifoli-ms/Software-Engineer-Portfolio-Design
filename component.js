@@ -135,7 +135,14 @@ window.__PortfolioComponent = function(DCLogic) { return class Component extends
       toggleNav: () => this.setState({ navOpen: !this.state.navOpen }),
       openResume: () => this.setState({ showResume: true, navOpen: false }),
       closeResume: () => this.setState({ showResume: false }),
-      printResume: () => window.print(),
+      printResume: () => {
+        const a = document.createElement('a');
+        a.href = 'assets/resume/shaun-esua-mensah-resume.pdf';
+        a.download = 'Shaun_Ato_Aifoli_Esua-Mensah_resume.pdf';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      },
       stop: (e) => e.stopPropagation(),
       submitLabel: this.state.sending ? 'Sending...' : 'Send message →',
       toastColor: this.state.toast.startsWith('Thanks') ? '#3fbf6a' : '#e53e3e',

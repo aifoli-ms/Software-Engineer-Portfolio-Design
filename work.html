@@ -42,16 +42,23 @@
       <!-- ===================== ALL WORK ===================== -->
       <section class="section" style="padding-top:130px;">
         <div class="container">
-          <div data-reveal class="section-tag">// ALL WORK</div>
+          <div data-reveal class="section-tag">ALL WORK</div>
           <h2 data-reveal class="section-title-sm">Seven projects, real impact.</h2>
           <p data-reveal class="section-desc">From production APIs to AI tools and research. Each project below covers
             the problem, the approach, what was hard, and what it moved.</p>
 
+          <div data-reveal class="filter-bar">
+            <button class="filter-btn filter-btn-active" onClick="{{ filterAll }}">All</button>
+            <button class="filter-btn" onClick="{{ filterBackend }}">Backend</button>
+            <button class="filter-btn" onClick="{{ filterFullstack }}">Full-Stack</button>
+            <button class="filter-btn" onClick="{{ filterAI }}">AI</button>
+          </div>
+
           <!-- Project 01: SWIFT Transport -->
-          <article id="project-01" data-reveal class="project">
+          <article id="project-01" data-reveal data-category="backend" class="project">
             <div class="project-header">
               <div>
-                <div class="project-meta"><span class="project-num">01</span><span class="project-tag">BACKEND</span>
+                <div class="project-meta"><span class="project-num">01</span><span class="project-tag">BACKEND</span><span class="project-role">Backend Intern · Team</span>
                 </div>
                 <h3 class="project-title">SWIFT Transport — Bus Booking Platform</h3>
                 <p class="project-subtitle">Backend APIs powering real-time trip search, booking, and digital ticketing
@@ -73,25 +80,25 @@
                   options or book ahead reliably.</p>
               </div>
               <div>
-                <div class="detail-label">SOLUTION</div>
-                <p class="detail-text">Built the Route &amp; Transit Management API from scratch: bus stop CRUD, route
-                  segment pricing, scheduling, and state management. Added UserExistsByIdGuard for secure user-scoped
+                <div class="detail-label">MY CONTRIBUTION</div>
+                <p class="detail-text">I built the Route &amp; Transit Management API from scratch: bus stop CRUD, route
+                  segment pricing, scheduling, and state management. I also added UserExistsByIdGuard for secure user-scoped
                   routes, enforced runtime env validation, and introduced CI coverage thresholds.</p>
+              </div>
+              <div>
+                <div class="detail-label">WHAT I SHIPPED</div>
+                <ul class="detail-list">
+                  <li>Full route management API: stops, segments, pricing, schedules.</li>
+                  <li>Driver-to-vehicle assignment for bus owner organisations.</li>
+                  <li>CI quality gates from zero (statement 69%, branch 48%, function 46%, line 68%).</li>
+                  <li>Automated daily payouts (currently shipping).</li>
+                </ul>
               </div>
               <div>
                 <div class="detail-label">TECHNICAL CHALLENGES</div>
                 <ul class="detail-list">
                   <li>Designing a flexible route segment pricing model for diverse operator needs.</li>
                   <li>Standardizing input validation across payment and payout endpoints.</li>
-                  <li>Establishing CI quality gates from zero (statement 69%, branch 48%, function 46%, line 68%).</li>
-                </ul>
-              </div>
-              <div>
-                <div class="detail-label">KEY FEATURES</div>
-                <ul class="detail-list">
-                  <li>Full route management API: stops, segments, pricing, schedules.</li>
-                  <li>Driver-to-vehicle assignment for bus owner organisations.</li>
-                  <li>Automated daily payouts (currently shipping).</li>
                 </ul>
               </div>
             </div>
@@ -109,21 +116,24 @@
                 <div class="project-stat-label">MOBILE APPS</div>
               </div>
             </div>
-            <div class="project-tags">
-              <span class="tech-tag">NestJS</span>
-              <span class="tech-tag">TypeScript</span>
-              <span class="tech-tag">PostgreSQL</span>
-              <span class="tech-tag">REST APIs</span>
-              <span class="tech-tag">Jest</span>
+            <div class="project-stack">
+              <div class="stack-label">BUILT WITH</div>
+              <div class="stack-chips">
+                <span class="stack-chip" data-tip="Also used in: Casa360, Venu"><img src="https://cdn.simpleicons.org/nestjs" alt="" class="stack-icon"> NestJS</span>
+                <span class="stack-chip" data-tip="Also used in: Casa360, Equity Health, Code Endelea"><img src="https://cdn.simpleicons.org/typescript" alt="" class="stack-icon"> TypeScript</span>
+                <span class="stack-chip" data-tip="Also used in: Casa360, Venu"><img src="https://cdn.simpleicons.org/postgresql" alt="" class="stack-icon"> PostgreSQL</span>
+                <span class="stack-chip" data-tip="Also used in: Casa360, Axon AI, Ashesi Logistics, Venu"><img src="https://cdn.simpleicons.org/nodedotjs" alt="" class="stack-icon"> REST APIs</span>
+                <span class="stack-chip" data-tip="Testing framework for SWIFT backend"><img src="https://cdn.simpleicons.org/jest" alt="" class="stack-icon"> Jest</span>
+              </div>
             </div>
           </article>
 
           <!-- Project 02: Casa360 -->
-          <article id="project-02" data-reveal class="project">
+          <article id="project-02" data-reveal data-category="fullstack ai" class="project">
             <div class="project-header">
               <div>
                 <div class="project-meta"><span class="project-num">02</span><span class="project-tag">FULL-STACK /
-                    AI</span></div>
+                    AI</span><span class="project-role">Software Engineer · Team</span></div>
                 <h3 class="project-title">Casa360 — AI Property Management</h3>
                 <p class="project-subtitle">AI-powered platform for tenant management, automated rent collection, and
                   vendor matching.</p>
@@ -144,25 +154,26 @@
                   system didn't work smoothly for either side.</p>
               </div>
               <div>
-                <div class="detail-label">SOLUTION</div>
-                <p class="detail-text">Full-stack SaaS platform with AI assistant (Cassie) for automated workflows:
-                  tenant onboarding, rent follow-ups, vendor matching, and real-time financial dashboards. Shipped 25+
-                  bug fixes spanning transaction safety, Docker hardening, and React Query cache correctness.</p>
+                <div class="detail-label">MY CONTRIBUTION</div>
+                <p class="detail-text">I shipped 25+ bug fixes and hardening tickets across the full stack: fixed TOCTOU
+                  race conditions in payment processing, resolved Docker signal-forwarding for graceful shutdown, hardened
+                  bulk import atomicity, and fixed React Query cache invalidation across vendor, payment, and invoice flows.</p>
               </div>
               <div>
-                <div class="detail-label">TECHNICAL CHALLENGES</div>
+                <div class="detail-label">WHAT I SHIPPED</div>
                 <ul class="detail-list">
                   <li>Fixed TOCTOU race conditions in payment processing (transaction safety).</li>
                   <li>Resolved Docker signal-forwarding and graceful shutdown for multi-replica deployments.</li>
+                  <li>React Query cache invalidation fixes across vendor, payment, and invoice flows.</li>
+                  <li>Secured production by gating Swagger docs and preventing DTO field injection.</li>
                   <li>Hardened bulk import atomicity and multi-org auth context.</li>
                 </ul>
               </div>
               <div>
-                <div class="detail-label">KEY FEATURES</div>
+                <div class="detail-label">TECHNICAL CHALLENGES</div>
                 <ul class="detail-list">
-                  <li>React Query cache invalidation fixes across vendor, payment, and invoice flows.</li>
-                  <li>Secured production by gating Swagger docs and preventing DTO field injection.</li>
-                  <li>AI-powered tenant workflows, vendor matching, and financial reporting.</li>
+                  <li>Tracing race conditions across async payment flows without breaking existing transactions.</li>
+                  <li>Hardening Docker deployments while maintaining zero-downtime for multi-replica services.</li>
                 </ul>
               </div>
             </div>
@@ -180,21 +191,24 @@
                 <div class="project-stat-label">AUTH HARDENED</div>
               </div>
             </div>
-            <div class="project-tags">
-              <span class="tech-tag">Next.js</span>
-              <span class="tech-tag">NestJS</span>
-              <span class="tech-tag">TypeScript</span>
-              <span class="tech-tag">PostgreSQL</span>
-              <span class="tech-tag">Docker</span>
-              <span class="tech-tag">React Query</span>
+            <div class="project-stack">
+              <div class="stack-label">BUILT WITH</div>
+              <div class="stack-chips">
+                <span class="stack-chip" data-tip="Also used in: Equity Health, Code Endelea"><img src="https://cdn.simpleicons.org/nextdotjs" alt="" class="stack-icon"> Next.js</span>
+                <span class="stack-chip" data-tip="Also used in: SWIFT Transport, Venu"><img src="https://cdn.simpleicons.org/nestjs" alt="" class="stack-icon"> NestJS</span>
+                <span class="stack-chip" data-tip="Also used in: SWIFT Transport, Equity Health, Code Endelea"><img src="https://cdn.simpleicons.org/typescript" alt="" class="stack-icon"> TypeScript</span>
+                <span class="stack-chip" data-tip="Also used in: SWIFT Transport, Venu"><img src="https://cdn.simpleicons.org/postgresql" alt="" class="stack-icon"> PostgreSQL</span>
+                <span class="stack-chip" data-tip="Used for containerized deployments"><img src="https://cdn.simpleicons.org/docker" alt="" class="stack-icon"> Docker</span>
+                <span class="stack-chip" data-tip="Client-side cache and state management"><img src="https://cdn.simpleicons.org/reactquery" alt="" class="stack-icon"> React Query</span>
+              </div>
             </div>
           </article>
 
           <!-- Project 03: Equity Health Insurance -->
-          <article id="project-03" data-reveal class="project">
+          <article id="project-03" data-reveal data-category="fullstack frontend" class="project">
             <div class="project-header">
               <div>
-                <div class="project-meta"><span class="project-num">03</span><span class="project-tag">FULL-STACK</span>
+                <div class="project-meta"><span class="project-num">03</span><span class="project-tag">FULL-STACK</span><span class="project-role-solo">Solo Project</span>
                 </div>
                 <h3 class="project-title">Equity Health — Insurance Platform Rebuild</h3>
                 <p class="project-subtitle">Complete rebuild of a healthcare insurance website serving 682+ clients
@@ -253,19 +267,22 @@
                 <div class="project-stat-label">COVERAGE</div>
               </div>
             </div>
-            <div class="project-tags">
-              <span class="tech-tag">Next.js</span>
-              <span class="tech-tag">Tailwind CSS</span>
-              <span class="tech-tag">TypeScript</span>
-              <span class="tech-tag">Vercel</span>
+            <div class="project-stack">
+              <div class="stack-label">BUILT WITH</div>
+              <div class="stack-chips">
+                <span class="stack-chip" data-tip="Also used in: Casa360, Code Endelea"><img src="https://cdn.simpleicons.org/nextdotjs" alt="" class="stack-icon"> Next.js</span>
+                <span class="stack-chip" data-tip="Utility-first CSS framework"><img src="https://cdn.simpleicons.org/tailwindcss" alt="" class="stack-icon"> Tailwind CSS</span>
+                <span class="stack-chip" data-tip="Also used in: SWIFT Transport, Casa360, Code Endelea"><img src="https://cdn.simpleicons.org/typescript" alt="" class="stack-icon"> TypeScript</span>
+                <span class="stack-chip" data-tip="Also used in: Venu"><img src="https://cdn.simpleicons.org/vercel" alt="" class="stack-icon"> Vercel</span>
+              </div>
             </div>
           </article>
 
           <!-- Project 04: Axon AI -->
-          <article id="project-04" data-reveal class="project">
+          <article id="project-04" data-reveal data-category="ai" class="project">
             <div class="project-header">
               <div>
-                <div class="project-meta"><span class="project-num">04</span><span class="project-tag">APPLIED AI</span>
+                <div class="project-meta"><span class="project-num">04</span><span class="project-tag">APPLIED AI</span><span class="project-role-solo">Solo Project</span>
                 </div>
                 <h3 class="project-title">Axon AI — Customer Service Copilot</h3>
                 <p class="project-subtitle">Chrome extension delivering real-time knowledge-base suggestions to support
@@ -322,19 +339,22 @@
                 <div class="project-stat-label">KB SUGGESTIONS</div>
               </div>
             </div>
-            <div class="project-tags">
-              <span class="tech-tag">JavaScript</span>
-              <span class="tech-tag">Chrome APIs</span>
-              <span class="tech-tag">AI / NLP</span>
-              <span class="tech-tag">REST APIs</span>
+            <div class="project-stack">
+              <div class="stack-label">BUILT WITH</div>
+              <div class="stack-chips">
+                <span class="stack-chip" data-tip="Also used in: Venu"><img src="https://cdn.simpleicons.org/javascript" alt="" class="stack-icon"> JavaScript</span>
+                <span class="stack-chip" data-tip="Browser extension APIs for live chat monitoring"><img src="https://cdn.simpleicons.org/googlechrome" alt="" class="stack-icon"> Chrome APIs</span>
+                <span class="stack-chip" data-tip="Also used in: Casa360, Code Endelea, Venu"><img src="https://cdn.simpleicons.org/huggingface" alt="" class="stack-icon"> AI / NLP</span>
+                <span class="stack-chip" data-tip="Also used in: SWIFT Transport, Casa360, Ashesi Logistics, Venu"><img src="https://cdn.simpleicons.org/nodedotjs" alt="" class="stack-icon"> REST APIs</span>
+              </div>
             </div>
           </article>
 
           <!-- Project 05: Ashesi Logistics Dashboards -->
-          <article id="project-05" data-reveal class="project">
+          <article id="project-05" data-reveal data-category="fullstack" class="project">
             <div class="project-header">
               <div>
-                <div class="project-meta"><span class="project-num">05</span><span class="project-tag">FULL-STACK</span>
+                <div class="project-meta"><span class="project-num">05</span><span class="project-tag">FULL-STACK</span><span class="project-role">Software Developer · Team</span>
                 </div>
                 <h3 class="project-title">Ashesi Logistics — Operations Dashboards</h3>
                 <p class="project-subtitle">Suite of 3 dashboards for resource monitoring, maintenance tracking, and
@@ -352,26 +372,24 @@
                   channel to report location-specific issues on campus.</p>
               </div>
               <div>
-                <div class="detail-label">SOLUTION</div>
-                <p class="detail-text">Built three interconnected dashboards: real-time resource monitoring for 4 water
-                  tanks and 2 treatment pipes, a preventive maintenance system managing 228 scheduled tasks with
-                  automated daily email alerts, and an issue-reporting portal with a 360° virtual campus tour for
-                  location-pinned reports.</p>
+                <div class="detail-label">MY CONTRIBUTION</div>
+                <p class="detail-text">I built the preventive maintenance dashboard with 228 scheduled tasks and
+                  automated daily email alerts, and developed the issue-reporting portal featuring a 360° virtual
+                  campus tour with interactive location-pinned reports.</p>
+              </div>
+              <div>
+                <div class="detail-label">WHAT I SHIPPED</div>
+                <ul class="detail-list">
+                  <li>Preventive maintenance system with 228 scheduled tasks and zero-miss email alerts.</li>
+                  <li>360° campus tour with interactive issue-pinning on specific locations.</li>
+                  <li>Automated daily maintenance emails to responsible personnel.</li>
+                </ul>
               </div>
               <div>
                 <div class="detail-label">TECHNICAL CHALLENGES</div>
                 <ul class="detail-list">
-                  <li>Integrating real-time sensor data into a responsive React dashboard.</li>
                   <li>Automating daily maintenance emails to responsible personnel reliably.</li>
                   <li>Building a 360° virtual tour with interactive issue-pinning on specific locations.</li>
-                </ul>
-              </div>
-              <div>
-                <div class="detail-label">KEY FEATURES</div>
-                <ul class="detail-list">
-                  <li>Real-time utility monitoring with actionable insights.</li>
-                  <li>228 scheduled maintenance tasks with zero-miss email alerts.</li>
-                  <li>360° campus tour with student-driven issue reporting.</li>
                 </ul>
               </div>
             </div>
@@ -389,20 +407,23 @@
                 <div class="project-stat-label">CAMPUS TOUR</div>
               </div>
             </div>
-            <div class="project-tags">
-              <span class="tech-tag">React</span>
-              <span class="tech-tag">Node.js</span>
-              <span class="tech-tag">Email Automation</span>
-              <span class="tech-tag">REST APIs</span>
+            <div class="project-stack">
+              <div class="stack-label">BUILT WITH</div>
+              <div class="stack-chips">
+                <span class="stack-chip" data-tip="Also used in: Code Endelea"><img src="https://cdn.simpleicons.org/react" alt="" class="stack-icon"> React</span>
+                <span class="stack-chip" data-tip="Also used in: Venu"><img src="https://cdn.simpleicons.org/nodedotjs" alt="" class="stack-icon"> Node.js</span>
+                <span class="stack-chip" data-tip="Automated daily maintenance alerts to staff"><img src="https://cdn.simpleicons.org/maildotru" alt="" class="stack-icon"> Email Automation</span>
+                <span class="stack-chip" data-tip="Also used in: SWIFT Transport, Casa360, Axon AI, Venu"><img src="https://cdn.simpleicons.org/nodedotjs" alt="" class="stack-icon"> REST APIs</span>
+              </div>
             </div>
           </article>
 
           <!-- Project 06: Code Endelea -->
-          <article id="project-06" data-reveal class="project">
+          <article id="project-06" data-reveal data-category="fullstack ai" class="project">
             <div class="project-header">
               <div>
                 <div class="project-meta"><span class="project-num">06</span><span class="project-tag">CO-FOUNDER /
-                    FULL-STACK</span></div>
+                    FULL-STACK</span><span class="project-role">Co-Founder &amp; Dev · Team</span></div>
                 <h3 class="project-title">Code Endelea — Interactive Coding Education</h3>
                 <p class="project-subtitle">One platform where students watch, pause, code, and run, with an AI tutor
                   guiding every step.</p>
@@ -423,26 +444,24 @@
                   to be, especially for beginners at universities and bootcamps.</p>
               </div>
               <div>
-                <div class="detail-label">SOLUTION</div>
-                <p class="detail-text">Built an all-in-one platform where students watch guided tutorials, pause to
-                  write real code in a browser-based IDE, run it instantly, and get help from Endi, an AI tutor that
-                  guides rather than gives answers. Everything happens in a single tab with zero setup required.</p>
+                <div class="detail-label">MY CONTRIBUTION</div>
+                <p class="detail-text">As co-founder, I led the technical direction and implemented payment gating
+                  and video locking for monetized content, conducted the OWASP Top 10 security audit with
+                  cookie/caching hardening, and audited the video processing pipeline for optimization.</p>
+              </div>
+              <div>
+                <div class="detail-label">WHAT I SHIPPED</div>
+                <ul class="detail-list">
+                  <li>Payment gating and video locking for content monetization.</li>
+                  <li>OWASP Top 10 security audit and cookie/caching hardening.</li>
+                  <li>Video processing pipeline audit and benchmarking for optimization.</li>
+                </ul>
               </div>
               <div>
                 <div class="detail-label">TECHNICAL CHALLENGES</div>
                 <ul class="detail-list">
-                  <li>Building a browser-based code execution environment supporting Python, JavaScript, Java, C++,
-                    Rust, and Go.</li>
-                  <li>Implementing payment gating and video locking for monetized content.</li>
+                  <li>Implementing payment gating that securely locks video content without breaking UX.</li>
                   <li>Auditing the video processing pipeline and benchmarking processing times for optimization.</li>
-                </ul>
-              </div>
-              <div>
-                <div class="detail-label">KEY FEATURES</div>
-                <ul class="detail-list">
-                  <li>Integrated video + IDE + AI tutor in a single tab.</li>
-                  <li>Payment and video locking for content monetization.</li>
-                  <li>OWASP Top 10 security audit and cookie/caching hardening.</li>
                 </ul>
               </div>
             </div>
@@ -460,20 +479,23 @@
                 <div class="project-stat-label">SECURITY AUDITED</div>
               </div>
             </div>
-            <div class="project-tags">
-              <span class="tech-tag">React</span>
-              <span class="tech-tag">Next.js</span>
-              <span class="tech-tag">TypeScript</span>
-              <span class="tech-tag">AI / LLMs</span>
-              <span class="tech-tag">Code Execution</span>
+            <div class="project-stack">
+              <div class="stack-label">BUILT WITH</div>
+              <div class="stack-chips">
+                <span class="stack-chip" data-tip="Also used in: Ashesi Logistics"><img src="https://cdn.simpleicons.org/react" alt="" class="stack-icon"> React</span>
+                <span class="stack-chip" data-tip="Also used in: Casa360, Equity Health"><img src="https://cdn.simpleicons.org/nextdotjs" alt="" class="stack-icon"> Next.js</span>
+                <span class="stack-chip" data-tip="Also used in: SWIFT Transport, Casa360, Equity Health"><img src="https://cdn.simpleicons.org/typescript" alt="" class="stack-icon"> TypeScript</span>
+                <span class="stack-chip" data-tip="Also used in: Casa360, Axon AI, Venu"><img src="https://cdn.simpleicons.org/huggingface" alt="" class="stack-icon"> AI / LLMs</span>
+                <span class="stack-chip" data-tip="Browser-based IDE supporting 6+ languages"><img src="https://cdn.simpleicons.org/replit" alt="" class="stack-icon"> Code Execution</span>
+              </div>
             </div>
           </article>
 
           <!-- Project 07: Venu -->
-          <article id="project-07" data-reveal class="project">
+          <article id="project-07" data-reveal data-category="fullstack ai" class="project">
             <div class="project-header">
               <div>
-                <div class="project-meta"><span class="project-num">07</span><span class="project-tag">FULL-STACK / AI</span></div>
+                <div class="project-meta"><span class="project-num">07</span><span class="project-tag">FULL-STACK / AI</span><span class="project-role-solo">Solo Project</span></div>
                 <h3 class="project-title">Venu — Restaurant Reservation Platform</h3>
                 <p class="project-subtitle">A full-stack restaurant discovery and booking platform for Ghana with an AI concierge powered by Gemini.</p>
               </div>
@@ -524,14 +546,17 @@
                 <div class="project-stat-label">VERCEL + NEON</div>
               </div>
             </div>
-            <div class="project-tags">
-              <span class="tech-tag">Node.js</span>
-              <span class="tech-tag">PostgreSQL</span>
-              <span class="tech-tag">Gemini AI</span>
-              <span class="tech-tag">Vercel Serverless</span>
-              <span class="tech-tag">Neon</span>
-              <span class="tech-tag">JWT</span>
-              <span class="tech-tag">Vanilla JS</span>
+            <div class="project-stack">
+              <div class="stack-label">BUILT WITH</div>
+              <div class="stack-chips">
+                <span class="stack-chip" data-tip="Also used in: Ashesi Logistics"><img src="https://cdn.simpleicons.org/nodedotjs" alt="" class="stack-icon"> Node.js</span>
+                <span class="stack-chip" data-tip="Also used in: SWIFT Transport, Casa360"><img src="https://cdn.simpleicons.org/postgresql" alt="" class="stack-icon"> PostgreSQL</span>
+                <span class="stack-chip" data-tip="AI concierge with function calling"><img src="https://cdn.simpleicons.org/googlegemini" alt="" class="stack-icon"> Gemini AI</span>
+                <span class="stack-chip" data-tip="Also used in: Equity Health"><img src="https://cdn.simpleicons.org/vercel" alt="" class="stack-icon"> Vercel Serverless</span>
+                <span class="stack-chip" data-tip="Serverless Postgres database"><img src="https://cdn.simpleicons.org/neon" alt="" class="stack-icon"> Neon</span>
+                <span class="stack-chip" data-tip="Auth across 3 roles: customer, owner, admin"><img src="https://cdn.simpleicons.org/jsonwebtokens" alt="" class="stack-icon"> JWT</span>
+                <span class="stack-chip" data-tip="Frontend built without frameworks"><img src="https://cdn.simpleicons.org/javascript" alt="" class="stack-icon"> Vanilla JS</span>
+              </div>
             </div>
           </article>
 
@@ -553,7 +578,7 @@
   <script type="text/x-dc" data-dc-script
     data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:820}}">
 const Component = (function(DCLogic) { return class extends DCLogic {
-  state = { theme: 'light' };
+  state = { theme: 'light', filter: 'all' };
 
   themes = {
     dark: {
@@ -624,11 +649,34 @@ const Component = (function(DCLogic) { return class extends DCLogic {
     try { localStorage.setItem('jp-portfolio-theme', t); } catch(e) {}
   }
 
+  setFilter(cat) {
+    this.setState({ filter: cat });
+    const root = this.rootEl || document;
+    const projects = root.querySelectorAll('[data-category]');
+    const btns = root.querySelectorAll('.filter-btn');
+    btns.forEach(b => {
+      b.classList.toggle('filter-btn-active', b.textContent.trim().toLowerCase() === cat || (cat === 'all' && b.textContent.trim() === 'All'));
+    });
+    projects.forEach(p => {
+      const cats = p.dataset.category.split(' ');
+      const show = cat === 'all' || cats.includes(cat);
+      p.style.display = show ? '' : 'none';
+      if (show) {
+        p.style.opacity = '1';
+        p.style.transform = 'none';
+      }
+    });
+  }
+
   renderVals() {
     return {
       setRoot: (el) => { this.rootEl = el; if (el) this.applyTheme(this.state.theme); },
       themeIcon: this.state.theme === 'dark' ? '☀' : '☾',
       toggleTheme: () => this.toggleTheme(),
+      filterAll: () => this.setFilter('all'),
+      filterBackend: () => this.setFilter('backend'),
+      filterFullstack: () => this.setFilter('fullstack'),
+      filterAI: () => this.setFilter('ai'),
     };
   }
 }; })(DCLogic);
