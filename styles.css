@@ -875,6 +875,79 @@ input, textarea {
   margin-top: 32px;
 }
 
+/* ===================== CAROUSEL ===================== */
+.carousel-wrap {
+  position: relative;
+  margin-top: 32px;
+}
+
+.carousel-viewport {
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.45s cubic-bezier(.4,0,.2,1);
+  will-change: transform;
+}
+
+.carousel-track .work-preview-card {
+  flex: 0 0 calc((100% - 40px) / 3);
+  min-width: 0;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--fg);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color .2s, background .2s;
+  z-index: 2;
+}
+
+.carousel-btn:hover {
+  border-color: var(--accent);
+  background: var(--surface2);
+}
+
+.carousel-prev { left: -20px; }
+.carousel-next { right: -20px; }
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: var(--border);
+  cursor: pointer;
+  padding: 0;
+  transition: background .2s, transform .2s;
+}
+
+.carousel-dot.active {
+  background: var(--accent);
+  transform: scale(1.3);
+}
+
 .work-preview-card {
   display: flex;
   flex-direction: column;
@@ -1007,11 +1080,22 @@ input, textarea {
 }
 
 .timeline-tag {
-  padding: 5px 11px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
   border: 1px solid var(--border);
-  border-radius: 999px;
-  font: 500 12px 'Carlito', sans-serif;
-  color: var(--faint);
+  border-radius: 12px;
+  background: var(--surface);
+  font: 500 14px 'Hanken Grotesk', sans-serif;
+  color: var(--fg);
+  white-space: nowrap;
+  transition: border-color .2s, transform .2s;
+}
+
+.timeline-tag:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
 }
 
 /* ===================== SKILLS ===================== */
@@ -1441,6 +1525,9 @@ input, textarea {
   .hero-title { margin-bottom: 18px; }
   .compact-card { padding: 18px; }
   .work-preview-grid { grid-template-columns: 1fr; }
+  .carousel-track .work-preview-card { flex: 0 0 calc(100% - 0px); }
+  .carousel-prev { left: -12px; }
+  .carousel-next { right: -12px; }
 }
 
 @media (max-width: 400px) {

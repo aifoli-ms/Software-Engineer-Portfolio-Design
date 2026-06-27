@@ -19,7 +19,7 @@ window.__PortfolioComponent = function(DCLogic) { return class Component extends
     try { saved = localStorage.getItem('jp-portfolio-theme') || 'light'; } catch(e) {}
     this.setState({ theme: saved });
     this.applyTheme(saved);
-    requestAnimationFrame(() => this.setupObservers());
+    requestAnimationFrame(() => { this.setupObservers(); this.setupCarousel(); });
   }
 
   applyTheme(t) {
@@ -69,6 +69,63 @@ window.__PortfolioComponent = function(DCLogic) { return class Component extends
     } else {
       revs.forEach(el => { el.style.opacity = '1'; el.style.transform = 'none'; });
     }
+  }
+
+  setupCarousel() {
+    const track = document.getElementById('carouselTrack');
+    const viewport = document.getElementById('carouselViewport');
+    const prevBtn = document.getElementById('carouselPrev');
+    const nextBtn = document.getElementById('carouselNext');
+    const dotsWrap = document.getElementById('carouselDots');
+    if (!track || !viewport) return;
+
+    const total = track.querySelectorAll('.work-preview-card').length;
+    const gap = 20;
+    let current = 0;
+    let timer;
+
+    function getVisible() { return window.innerWidth <= 560 ? 1 : 3; }
+
+    function buildDots() {
+      const visible = getVisible();
+      const maxIndex = total - visible;
+      dotsWrap.innerHTML = '';
+      for (let i = 0; i <= maxIndex; i++) {
+        const d = document.createElement('button');
+        d.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        d.setAttribute('aria-label', `Go to slide ${i + 1}`);
+        d.addEventListener('click', () => { goTo(i); resetTimer(); });
+        dotsWrap.appendChild(d);
+      }
+    }
+
+    function goTo(idx) {
+      const visible = getVisible();
+      const maxIndex = total - visible;
+      current = Math.max(0, Math.min(idx, maxIndex));
+      const vw = viewport.offsetWidth;
+      track.style.transform = `translateX(-${current * (vw + gap) / visible}px)`;
+      dotsWrap.querySelectorAll('.carousel-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === current);
+      });
+    }
+
+    function next() { goTo(current < total - getVisible() ? current + 1 : 0); }
+    function prev() { goTo(current > 0 ? current - 1 : total - getVisible()); }
+
+    prevBtn.addEventListener('click', () => { prev(); resetTimer(); });
+    nextBtn.addEventListener('click', () => { next(); resetTimer(); });
+
+    viewport.addEventListener('mouseenter', () => clearInterval(timer));
+    viewport.addEventListener('mouseleave', () => startTimer());
+
+    window.addEventListener('resize', () => { buildDots(); goTo(Math.min(current, total - getVisible())); });
+
+    function startTimer() { timer = setInterval(next, 3500); }
+    function resetTimer() { clearInterval(timer); startTimer(); }
+
+    buildDots();
+    startTimer();
   }
 
   animateCount(el) {
