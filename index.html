@@ -20,9 +20,94 @@
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
   </script>
   <script defer src="/_vercel/analytics/script.js"></script>
+  <style>
+    #page-loader {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: #0f1b2d;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    #page-loader.out {
+      opacity: 0;
+      transform: translateY(-10px);
+      pointer-events: none;
+    }
+    .loader-mono {
+      font-family: system-ui, sans-serif;
+      font-size: 80px;
+      font-weight: 700;
+      color: #06b6d4;
+      letter-spacing: 0.08em;
+      animation: loader-pop 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      opacity: 0;
+    }
+    .loader-name {
+      font-family: system-ui, sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.45);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      animation: loader-rise 0.5s ease forwards;
+      animation-delay: 0.75s;
+      opacity: 0;
+    }
+    .loader-track {
+      width: 80px;
+      height: 1.5px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 2px;
+      overflow: hidden;
+      animation: loader-rise 0.5s ease forwards;
+      animation-delay: 0.75s;
+      opacity: 0;
+    }
+    .loader-fill {
+      height: 100%;
+      width: 0;
+      background: #06b6d4;
+      border-radius: 2px;
+      animation: loader-progress 2.6s ease forwards;
+      animation-delay: 0.9s;
+    }
+    @keyframes loader-pop {
+      0%   { opacity: 0; transform: scale(0.75); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    @keyframes loader-rise {
+      0%   { opacity: 0; transform: translateY(6px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes loader-progress {
+      0%   { width: 0%; }
+      100% { width: 100%; }
+    }
+  </style>
 </head>
 
 <body>
+  <div id="page-loader">
+    <div class="loader-mono">&lt;/&gt;</div>
+    <div class="loader-name">Shaun Esua-Mensah</div>
+    <div class="loader-track"><div class="loader-fill"></div></div>
+  </div>
+  <script>
+    (function () {
+      document.body.style.overflow = 'hidden';
+      var loader = document.getElementById('page-loader');
+      setTimeout(function () {
+        loader.classList.add('out');
+        document.body.style.overflow = '';
+        setTimeout(function () { loader.remove(); }, 500);
+      }, 3500);
+    })();
+  </script>
   <x-dc>
     <helmet>
       <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -74,8 +159,7 @@
             <div data-reveal class="status-badge">
               <span class="status-text">Open to internships &amp; new grad roles</span>
             </div>
-            <h1 data-reveal class="hero-title">Building systems<br>and <span class="hero-accent">AI tools</span> that
-              solve real problems.</h1>
+            <h1 data-reveal class="hero-title">Transit APIs.Fintech pipelines.<br><span class="hero-accent">NAACL</span>-published AI research.</h1>
             <p data-reveal class="hero-desc">I'm a computer science student at Ashesi University and software engineer
               with hands-on experience building production APIs, AI-powered tools, and full-stack dashboards, with
               research published at NAACL.</p>
@@ -192,7 +276,7 @@
               </div>
               <div class="info-card">
                 <div class="info-card-title-sm">CURRENTLY EXPLORING</div>
-                <p class="info-exploring">Scalable backend architectures, AI agents with real-world guardrails, and
+                <p class="info-exploring">Scalable backend architectures, AI agents, and
                   developer tooling that makes teams faster. Long-term I want to build systems that bring AI reliably
                   into production.</p>
               </div>
